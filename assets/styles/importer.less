@@ -14,17 +14,27 @@
  * or any other Grunt tasks you like.)
  */
 
+@import 'theme/palette.less';
+@import 'theme/settings.less';
+@import 'bootstrap/bootstrap.less';
+@import 'views/admin.less';
+@import 'views/home.less';
+@import 'views/characters.less';
 
+.navbar {
+	margin-bottom: 0;
+}
 
-// For example:
-//
-// @import 'variables/colors.less';
-// @import 'mixins/foo.less';
-// @import 'mixins/bar.less';
-// @import 'mixins/baz.less';
-//
-// @import 'styleguide.less';
-// @import 'pages/login.less';
-// @import 'pages/signup.less';
-//
-// etc.
+[contenteditable]:hover, [contenteditable]:focus {
+	background-color: @edit-in-place;
+}
+
+[contenteditable] {
+	padding: 4px;
+}
+
+.footer {
+	margin-top: 40px;
+	min-height: 50px;
+	background-color: @well-bg;
+}

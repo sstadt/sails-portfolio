@@ -10,6 +10,11 @@
  */
 module.exports.globals = {
 
+  site: {
+    title: 'ScottStadt.com',
+    projectFeedLimit: 8
+  }
+
   /****************************************************************************
   *                                                                           *
   * Expose the lodash installed in Sails core as a global variable. If this   *

@@ -1,0 +1,198 @@
+
+<div class="jumbotron">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1><%= sails.config.globals.site.title %> Admin Panel</h1>
+				<a href="/" class="btn btn-primary">Return to Portfolio</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12">
+
+			<!-- Skills -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						Skills
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-12 col-md-6">
+							<h2>Design Skills</h2>
+							<ul class="list-group">
+								<li class="list-group-item">
+									Photoshop
+									<button type="button" class="btn btn-danger btn-xs pull-right">
+										<i class="glyphicon glyphicon-minus"></i>
+									</button>
+								</li>
+								<li class="list-group-item">
+									Illustrator
+									<button type="button" class="btn btn-danger btn-xs pull-right">
+										<i class="glyphicon glyphicon-minus"></i>
+									</button>
+								</li>
+								<li class="list-group-item">
+									Flash
+									<button type="button" class="btn btn-danger btn-xs pull-right">
+										<i class="glyphicon glyphicon-minus"></i>
+									</button>
+								</li>
+								<li class="list-group-item">
+									HTML 5
+									<button type="button" class="btn btn-danger btn-xs pull-right">
+										<i class="glyphicon glyphicon-minus"></i>
+									</button>
+								</li>
+								<li class="list-group-item">
+									CSS 2/3
+									<button type="button" class="btn btn-danger btn-xs pull-right">
+										<i class="glyphicon glyphicon-minus"></i>
+									</button>
+								</li>
+								<li class="list-group-item">
+									XML/JSON
+									<button type="button" class="btn btn-danger btn-xs pull-right">
+										<i class="glyphicon glyphicon-minus"></i>
+									</button>
+								</li>
+							</ul>
+							<form>
+								<div class="input-group">
+									<input type="text" class="form-control">
+									<span class="input-group-btn">
+										<button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i></button>
+									</span>
+								</div>
+							</form>
+						</div>
+						<div class="col-sm-12 col-md-6">
+							<h2>Development Skills</h2>
+							<ul class="list-group">
+								<li class="list-group-item">
+									Javascript
+									<button type="button" class="btn btn-danger btn-xs pull-right">
+										<i class="glyphicon glyphicon-minus"></i>
+									</button>
+								</li>
+								<li class="list-group-item">
+									jQuery
+									<button type="button" class="btn btn-danger btn-xs pull-right">
+										<i class="glyphicon glyphicon-minus"></i>
+									</button>
+								</li>
+								<li class="list-group-item">
+									Node.js
+									<button type="button" class="btn btn-danger btn-xs pull-right">
+										<i class="glyphicon glyphicon-minus"></i>
+									</button>
+								</li>
+								<li class="list-group-item">
+									MongoDB
+									<button type="button" class="btn btn-danger btn-xs pull-right">
+										<i class="glyphicon glyphicon-minus"></i>
+									</button>
+								</li>
+								<li class="list-group-item">
+									PHP/MySQL
+									<button type="button" class="btn btn-danger btn-xs pull-right">
+										<i class="glyphicon glyphicon-minus"></i>
+									</button>
+								</li>
+								<li class="list-group-item">
+									WordPress
+									<button type="button" class="btn btn-danger btn-xs pull-right">
+										<i class="glyphicon glyphicon-minus"></i>
+									</button>
+								</li>
+							</ul>
+							<form>
+								<div class="input-group">
+									<input type="text" class="form-control">
+									<span class="input-group-btn">
+										<button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i></button>
+									</span>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Projects -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						Projects
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+							<div class="thumbnail">
+								<img src="/images/npi.jpg">
+								<div class="caption">
+									<h2>NPI Medical</h2>
+									<p>HTML5, CSS3, PHP, JQuery, WordPress, Twig</p>
+									<p>As the sole team member on the project, I sliced existing design comps and built out front-end functionality. As an extra bit of under-the-hood flair for this project, I wrote a class that took care of registering everything associated with a custom post type including meta data. As a result, we were able to deliver the project much faster than originally anticipated.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+							<div class="thumbnail">
+								<div class="caption">
+									<h3>Add Project</h3>
+									<p>future dropzone area</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Links -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						Links
+					</h3>
+				</div>
+				<div class="panel-body">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<td>Title</td>
+								<td>Caption</td>
+								<td>Link</td>
+								<td></td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Some Link</td>
+								<td>Click me!</td>
+								<td>http://www.somelink.com</td>
+								<td>
+									<div class="pull-right">
+										<button class="btn btn-xs btn-primary pull-left"><i class="glyphicon glyphicon-edit"></i></button>
+										<button class="btn btn-xs btn-danger pull-left"><i class="glyphicon glyphicon-minus"></i></button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script src="/js/vendor/require.js" data-main="/js/admin-app.js"></script>
+
