@@ -11,12 +11,25 @@
 					beforeRemove: hideSkillElement,
 					afterAdd: showSkillElement
 				}">
-					<div href="#" class="list-group-item">
-						<span data-bind="jeditable: name"></span>
-						<button type="button" class="btn btn-danger btn-xs pull-right" data-bind="click: $parent.removeSkill">
-							<i class="glyphicon glyphicon-minus"></i>
-						</button>
-					</div>
+					<a href="#" class="list-group-item" data-bind="click: $parent.editSkill">
+						<div data-bind="visible: !edit">
+							<span data-bind="text: name"></span>
+							<button type="button" class="btn btn-danger btn-xs pull-right" data-bind="click: $parent.removeSkill, clickBubble: false">
+								<i class="glyphicon glyphicon-trash"></i>
+							</button>
+						</div>
+						<form data-bind="visible: edit">
+							<input type="form-control form-inline" data-bind="value: tempName">
+							<div class="pull-right">
+								<button type="submit" class="btn btn-success btn-xs pull-left" data-bind="click: $parent.updateSkill">
+									<i class="glyphicon glyphicon-ok"></i>
+								</button>
+								<button type="button" class="btn btn-info btn-xs pull-left" data-bind="click: $parent.cancelUpdate">
+									<i class="glyphicon glyphicon-remove"></i>
+								</button>
+							</div>
+						</form>
+					</a>
 				</div>
 				<form data-bind="submit: addDesignSkill">
 					<div class="input-group">
@@ -37,17 +50,30 @@
 					afterAdd: showSkillElement
 				}">
 					<a href="#" class="list-group-item" data-bind="click: $parent.editSkill">
-						<span data-bind="text: name"></span>
-						<button type="button" class="btn btn-danger btn-xs pull-right" data-bind="click: $parent.removeSkill">
-							<i class="glyphicon glyphicon-minus"></i>
-						</button>
+						<div data-bind="visible: !edit">
+							<span data-bind="text: name"></span>
+							<button type="button" class="btn btn-danger btn-xs pull-right" data-bind="click: $parent.removeSkill, clickBubble: false">
+								<i class="glyphicon glyphicon-trash"></i>
+							</button>
+						</div>
+						<form data-bind="visible: edit">
+							<input type="form-control form-inline" data-bind="value: tempName">
+							<div class="pull-right">
+								<button type="submit" class="btn btn-success btn-xs pull-left" data-bind="click: $parent.updateSkill">
+									<i class="glyphicon glyphicon-ok"></i>
+								</button>
+								<button type="button" class="btn btn-info btn-xs pull-left" data-bind="click: $parent.cancelUpdate">
+									<i class="glyphicon glyphicon-remove"></i>
+								</button>
+							</div>
+						</form>
 					</a>
 				</div>
-				<form>
+				<form data-bind="submit: addDevelopmentSkill">
 					<div class="input-group">
-						<input type="text" class="form-control" data-bind="newDevelopmentSkill">
+						<input type="text" class="form-control" data-bind="value: newDevelopmentSkill">
 						<span class="input-group-btn">
-							<button class="btn btn-success" type="submit" data-bind="value: newDesignSkill">
+							<button class="btn btn-success" type="submit">
 								<i class="glyphicon glyphicon-plus"></i>
 							</button>
 						</span>

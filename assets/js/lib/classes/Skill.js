@@ -7,7 +7,8 @@ define(function () {
   return function Skill(data) {
     this.id = data.id;
     this.name = data.name;
+    this.tempName = data.name;
     this.category = data.category;
-    this.edit = false;
+    this.edit = data.edit || false;
   };
 });

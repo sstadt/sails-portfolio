@@ -28,8 +28,6 @@ define([
         category: category
       };
 
-      console.log(newSkill);
-
       $.ajax({
         type: 'POST',
         url: '/skill/create',
@@ -38,7 +36,7 @@ define([
         cache: false,
         success: function (response) {
           if (response.success) {
-            self[response.skill.category].push(response.skill);
+            self[response.skill.category].push(self.createSkill(response.skill));
 
             if (category === 'design') {
               self.newDesignSkill('');
@@ -62,13 +60,43 @@ define([
     };
 
     self.editSkill = function (skill) {
+      if (!skill.edit) {
+        self.setEditState(skill, true);
+      }
+    };
+
+    self.cancelUpdate = function (skill) {
+      skill.tempName = skill.name;
+      self.setEditState(skill, false);
+    };
+
+    self.setEditState = function (skill, state) {
       var skillIndex = _.findIndex(self[skill.category](), function (c) {
         return c.id === skill.id;
       });
 
-      skill.edit = true;
-      self[skill.category].replace(self[skill.category]()[skillIndex], skill);
-      console.log(self[skill.category]());
+      skill.edit = state;
+      self[skill.category].replace(self[skill.category]()[skillIndex], self.createSkill(skill));
+    };
+
+    self.updateSkill = function (skill) {
+      skill.name = skill.tempName;
+
+      $.ajax({
+        type: 'POST',
+        url: '/skill/update',
+        dataType: 'json',
+        data: skill,
+        cache: false,
+        success: function (response) {
+          if (response.success) {
+            self.setEditState(response.skill[0], false);
+          } else {
+            alert('error');
+            console.log(response.err);
+          }
+        }
+      });
     };
 
     self.removeSkill = function (skill) {
