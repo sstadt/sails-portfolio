@@ -4,14 +4,14 @@
 requirejs.config({
   paths: {
     // plugins
-    'text': 'plugins/text',
+    'text': 'vendor/requirejs-text/text',
 
     // vendor
     'sails': 'vendor/sails.io',
-    'jquery': 'vendor/jquery-2.1.1',
-    'lodash': 'vendor/lodash.compat',
-    'bootstrap': 'vendor/bootstrap',
-    'knockout': 'vendor/knockout-3.2.0',
+    'jquery': 'vendor/jquery/dist/jquery',
+    'lodash': 'vendor/lodash/dist/lodash',
+    'bootstrap': 'vendor/bootstrap/dist/js/bootstrap',
+    'knockout': 'vendor/knockout/dist/knockout',
 
     // classes
     'Skill': 'lib/classes/Skill',
@@ -52,6 +52,7 @@ requirejs.config({
         $(element).text(value);
       }
     };
+
   }
 });
 
