@@ -1,5 +1,5 @@
 /*jslint browser: true*/
-/*globals define, confirm, alert*/
+/*globals define, confirm, alert, io*/
 
 define([
   'jquery',
@@ -28,25 +28,18 @@ define([
         category: category
       };
 
-      $.ajax({
-        type: 'POST',
-        url: '/skill/create',
-        dataType: 'json',
-        data: newSkill,
-        cache: false,
-        success: function (response) {
-          if (response.success) {
-            self[response.skill.category].push(self.createSkill(response.skill));
+      io.socket.post('/skill/create', newSkill, function (response) {
+        if (response.success) {
+          self[response.skill.category].push(self.createSkill(response.skill));
 
-            if (category === 'design') {
-              self.newDesignSkill('');
-            } else {
-              self.newDevelopmentSkill('');
-            }
+          if (category === 'design') {
+            self.newDesignSkill('');
           } else {
-            alert('error');
-            console.log(response);
+            self.newDevelopmentSkill('');
           }
+        } else {
+          alert('error');
+          console.log(response);
         }
       });
     };
@@ -82,40 +75,25 @@ define([
     self.updateSkill = function (skill) {
       skill.name = skill.tempName;
 
-      $.ajax({
-        type: 'POST',
-        url: '/skill/update',
-        dataType: 'json',
-        data: skill,
-        cache: false,
-        success: function (response) {
-          if (response.success) {
-            self.setEditState(response.skill[0], false);
-          } else {
-            alert('error');
-            console.log(response.err);
-          }
+      io.socket.post('/skill/update', skill, function (response) {
+        if (response.success) {
+          self.setEditState(response.skill[0], false);
+        } else {
+          alert('error');
+          console.log(response.err);
         }
       });
     };
 
     self.removeSkill = function (skill) {
       if (confirm('Are you sure you want to delete this skill?')) {
-        // delete the character from sails
-        $.ajax({
-          type: 'POST',
-          url: '/skill/destroy',
-          dataType: 'json',
-          data: { id: skill.id },
-          cache: false,
-          success: function (response) {
-            if (response.success) {
-              // update the character list
-              self[skill.category].destroy(skill);
-            } else {
-              alert('error');
-              console.log(response);
-            }
+        io.socket.post('/skill/destroy', { id: skill.id }, function (response) {
+          if (response.success) {
+            // update the character list
+            self[skill.category].destroy(skill);
+          } else {
+            alert('error');
+            console.log(response);
           }
         });
       }
@@ -139,28 +117,22 @@ define([
       return new Skill(skill);
     };
 
-    $.ajax({
-      type: 'GET',
-      url: '/skill/show',
-      dataType: 'json',
-      cache: false,
-      success: function (response) {
-        if (response.success) {
-          if (response.skills.length > 0) {
-            var design = _.filter(response.skills, function (skill) {
-                return skill.category === 'design';
-              }).map(self.createSkill),
-              development = _.filter(response.skills, function (skill) {
-                return skill.category === 'development';
-              }).map(self.createSkill);
+    io.socket.get('/skill/show', function (response) {
+      if (response.success) {
+        if (response.skills.length > 0) {
+          var design = _.filter(response.skills, function (skill) {
+              return skill.category === 'design';
+            }).map(self.createSkill),
+            development = _.filter(response.skills, function (skill) {
+              return skill.category === 'development';
+            }).map(self.createSkill);
 
-            self.design(design);
-            self.development(development);
-          }
-        } else {
-          alert('error');
-          console.log(response);
+          self.design(design);
+          self.development(development);
         }
+      } else {
+        alert('error');
+        console.log(response);
       }
     });
 
