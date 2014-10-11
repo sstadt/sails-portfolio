@@ -11,7 +11,12 @@
 module.exports = {
   
   create: function (req, res) {
-    Skill.create({ name: req.param('name') }, function (err, skill) {
+    var newSkill = {
+      name: req.param('name'),
+      category: req.param('category')
+    };
+
+    Skill.create(newSkill, function (err, skill) {
       if (err) {
         res.json(err);
       } else {
@@ -27,10 +32,6 @@ module.exports = {
     var updatedSkill = {
       name: req.param('name'),
     };
-
-    if (req.param('highlight')) {
-      updatedSkill.highlight = req.param('highlight');
-    }
 
     Skill.update(req.param('id'), updatedSkill, function (err, skill) {
       if (err) {

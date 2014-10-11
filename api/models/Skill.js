@@ -15,10 +15,10 @@ module.exports = {
       type: 'string',
       required: true
     },
-    highlight: {
-      type: 'boolean',
+    category: {
+      type: 'string',
       required: true,
-      defaultsTo: false
+      enum: ['design', 'development']
     }
   }
 };
