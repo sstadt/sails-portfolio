@@ -9,7 +9,6 @@ requirejs.config({
     // vendor
     'sails': 'vendor/sails.io',
     'jquery': 'vendor/jquery-2.1.1',
-    'jeditable': 'vendor/jquery.jeditable',
     'lodash': 'vendor/lodash.compat',
     'bootstrap': 'vendor/bootstrap',
     'knockout': 'vendor/knockout-3.2.0',
@@ -25,13 +24,10 @@ requirejs.config({
   shim: {
     'bootstrap': {
       deps: ['jquery']
-    },
-    'jeditable': {
-      deps: ['jquery']
     }
   },
   deps: [
-    'knockout', 'jquery', 'jeditable', 'sails', 'bootstrap'
+    'knockout', 'jquery', 'sails', 'bootstrap'
   ],
   callback: function (ko, $) {
 
