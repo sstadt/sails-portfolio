@@ -11,7 +11,7 @@ define([
   'use strict';
 
   function SkillListViewModel() {
-    // cache this to avoid conflicts later
+    // cache this to eliminate the need to pass context to jquery and lodash functions
     var self = this;
 
     // list data
@@ -22,6 +22,11 @@ define([
     self.newDesignSkill = ko.observable();
     self.newDevelopmentSkill = ko.observable();
 
+    /**
+     * Add a new skill
+     * @param {string} skill    The name of the new skill
+     * @param {string} category The skill category: design or development
+     */
     self.addSkill = function (skill, category) {
       var newSkill = {
         name: skill,
@@ -44,25 +49,47 @@ define([
       });
     };
 
+    /**
+     * Call the addSkill function with the category
+     * set to design
+     */
     self.addDesignSkill = function () {
       self.addSkill(self.newDesignSkill(), 'design');
     };
 
+    /**
+     * Call the addSkill function with the category
+     * set to development
+     */
     self.addDevelopmentSkill = function () {
       self.addSkill(self.newDevelopmentSkill(), 'development');
     };
 
+    /**
+     * Toggle the edit state of a skill to true
+     * @param  {Skill} skill The skill object to turn editing on for
+     */
     self.editSkill = function (skill) {
       if (!skill.edit) {
         self.setEditState(skill, true);
       }
     };
 
+    /**
+     * Toggle the edit state of a skill to false wthout
+     * saving changes
+     * @param  {Skill} skill The skill object to turn editing off for
+     */
     self.cancelUpdate = function (skill) {
       skill.tempName = skill.name;
       self.setEditState(skill, false);
     };
 
+    /**
+     * Set the edit state for a skill
+     * @param {Skill} skill The skill object to set edit state for
+     * @param {bool}  state The edit state to set; true or false
+     */
     self.setEditState = function (skill, state) {
       var skillIndex = _.findIndex(self[skill.category](), function (c) {
         return c.id === skill.id;
@@ -72,6 +99,11 @@ define([
       self[skill.category].replace(self[skill.category]()[skillIndex], self.createSkill(skill));
     };
 
+    /**
+     * Save changes to a skill and toggle the edit mode for
+     * that skill to false
+     * @param {Skill} skill The skill object to save changes for
+     */
     self.updateSkill = function (skill) {
       skill.name = skill.tempName;
 
@@ -85,6 +117,10 @@ define([
       });
     };
 
+    /**
+     * Delete a skill from the list of skills
+     * @param  {Skill} skill the skill to delete from the list
+     */
     self.removeSkill = function (skill) {
       if (confirm('Are you sure you want to delete this skill?')) {
         io.socket.post('/skill/destroy', { id: skill.id }, function (response) {
@@ -99,12 +135,20 @@ define([
       }
     };
 
+    /**
+     * Slide down jQuery animation binding for skill list items
+     * @param  {jQuery} element The element to animate
+     */
     self.showSkillElement = function (element) {
       if (element.nodeType === 1) {
         $(element).hide().slideDown();
       }
     };
 
+    /**
+     * Slide up jQuery animation binding for skill list items
+     * @param  {jQuery} element The element to animate
+     */
     self.hideSkillElement = function (element) {
       if (element.nodeType === 1) {
         $(element).slideUp(function () {
@@ -113,10 +157,17 @@ define([
       }
     };
 
+    /**
+     * Wrapper function for returning a new skill object; abstracted
+     * out to allow for more terse mapping on arrays of skills
+     * @param  {object} skill The object to instantiate a new Skill with
+     * @return {Skill}        The new Skill object
+     */
     self.createSkill = function (skill) {
       return new Skill(skill);
     };
 
+    // poplate the initial list of skills
     io.socket.get('/skill/show', function (response) {
       if (response.success) {
         if (response.skills.length > 0) {
