@@ -8,6 +8,6 @@ To set up the project:
 	npm install -g bower
 	cd path/to/repo
 	npm install && bower install
-	sails list
+	sails lift
 
 The project should now be available at `localhost:1337`
