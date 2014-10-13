@@ -116,3 +116,22 @@ npm-debug.log
 nbproject
 .idea
 .node_history
+
+
+
+
+
+################################################
+# Fil Uploads
+#
+# Directories holding fil uploads
+################################################
+
+uploads/images/*.jpg
+uploads/images/*.jpeg
+uploads/images/*.gif
+uploads/images/*.png
+
+
+
+
