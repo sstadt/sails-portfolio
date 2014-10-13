@@ -124,7 +124,7 @@ nbproject
 ################################################
 # Fil Uploads
 #
-# Directories holding fil uploads
+# Directories holding file uploads
 ################################################
 
 uploads/images/*.jpg
