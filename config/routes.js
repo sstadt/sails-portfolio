@@ -39,6 +39,12 @@ module.exports.routes = {
   '/admin': {
     controller: 'Static',
     action: 'admin'
+  },
+
+  // projects
+  '/project/start': {
+    controller: 'Project',
+    action: 'start'
   }
 
   /***************************************************************************

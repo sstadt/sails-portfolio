@@ -7,11 +7,12 @@ requirejs.config({
     'text': 'vendor/requirejs-text/text',
 
     // vendor
-    'sails': 'vendor/sails.io',
+    'sails': 'vendor/sails.io.js/dist/sails.io',
     'jquery': 'vendor/jquery/dist/jquery',
     'lodash': 'vendor/lodash/dist/lodash',
     'bootstrap': 'vendor/bootstrap/dist/js/bootstrap',
     'knockout': 'vendor/knockout/dist/knockout',
+    'dropzone': 'vendor/dropzone/downloads/dropzone',
 
     // classes
     'Skill': 'lib/classes/Skill',

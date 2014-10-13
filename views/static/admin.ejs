@@ -16,12 +16,16 @@
 
 			<div data-bind="component: 'skill-list'"></div>
 
+			<form id="startProject" class="dropzone" action="/file-upload">
+				<div class="fallback">
+					<input name="file" type="file" multiple />
+				</div>
+			</form>
+
 			<!-- Projects -->
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">
-						Projects
-					</h3>
+					<h3 class="panel-title">Projects</h3>
 				</div>
 				<div class="panel-body">
 					<div class="row">
@@ -50,9 +54,7 @@
 			<!-- Links -->
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">
-						Links
-					</h3>
+					<h3 class="panel-title">Links</h3>
 				</div>
 				<div class="panel-body">
 					<table class="table table-striped">

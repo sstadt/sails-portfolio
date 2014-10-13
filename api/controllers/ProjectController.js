@@ -10,6 +10,17 @@
 
 module.exports = {
 
+  start: function (req, res) {
+    req.file('file').upload(function (err, file) {
+      if (err) {
+        res.serverError('Unable to upload file.', err);
+      } else {
+        console.log(file);
+        res.send(200); 
+      }
+    });
+  },
+
   create: function (req, res) {
     var newProject = {
       name: req.param('name'),
