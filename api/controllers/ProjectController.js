@@ -8,8 +8,8 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
-var fs = require('fs'),
-  md5 = require('md5');
+var aws = require('../services/aws.js'),
+  s3path = 'project';
 
 module.exports = {
 
@@ -18,65 +18,18 @@ module.exports = {
       if (err) {
         res.serverError('Unable to upload file.', err);
       } else {
-        console.log(file);
-
-        var AWS = require('aws-sdk'),
-          fs = require('fs');
-
-        // For dev purposes only
-        AWS.config.update({ accessKeyId: sails.config.s3.key, secretAccessKey: sails.config.s3.secret });
-
-        // Read in the file, convert it to base64, store to S3
-        fs.readFile(file[0].fd, function (err, data) {
-
+        aws.upload(file[0], sails.config.s3.bucket, s3path, function (err, url) {
           if (err) {
-            res.serverError('Unable to read file', err);
+            res.serverError(err.msg, err.err);
           } else {
-            var s3 = new AWS.S3(),
-              filename = 'projects/' + file[0].filename,
-              url = 'https://' + sails.config.s3.bucket + '.s3.amazonaws.com/' + filename;
-
-            s3.putObject({
-              Bucket: sails.config.s3.bucket,
-              Key: filename,
-              Body: data,
-              ACL: 'public-read',
-              ContentType: file[0].type
-            }, function (err, data) {
-              if (err) {
-                res.serverError('Error pushing object to s3', err);
-              } else {
-                // clear the temporary file
-                fs.unlink(file[0].fd);
-
-                res.json({
-                  success: true,
-                  url: url
-                });
-              }
+            res.json({
+              success: true,
+              url: url
             });
           }
-
         });
       }
     });
-
-    // req.file('file').upload({
-    //   adapter: require('skipper-s3'),
-    //   bucket: sails.config.s3.bucket,
-    //   key: sails.config.s3.key,
-    //   secret: sails.config.s3.secret
-    // }, function (err, file) {
-    //   if (err) {
-    //     console.log(err);
-    //     res.serverError('Unable to upload file.', err);
-    //   } else {
-    //     res.json({
-    //       success: true,
-    //       file: file
-    //     });
-    //   }
-    // });
   },
 
   create: function (req, res) {
