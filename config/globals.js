@@ -8,11 +8,14 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.globals.html
  */
+
+var path = require('path');
+
 module.exports.globals = {
 
   site: {
     title: 'ScottStadt.com',
-    projectFeedLimit: 8
+    projectFeedLimit: 8,
   }
 
   /****************************************************************************
