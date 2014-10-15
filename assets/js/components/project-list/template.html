@@ -1,0 +1,52 @@
+<!-- Projects -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Projects</h3>
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="thumbnail">
+					<img src="/images/npi.jpg">
+					<div class="caption">
+						<h2>NPI Medical</h2>
+						<p>HTML5, CSS3, PHP, JQuery, WordPress, Twig</p>
+						<p>As the sole team member on the project, I sliced existing design comps and built out front-end functionality. As an extra bit of under-the-hood flair for this project, I wrote a class that took care of registering everything associated with a custom post type including meta data. As a result, we were able to deliver the project much faster than originally anticipated.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<div id="startProject" class="thumbnail">
+					<div class="caption">
+						<h3>Add Project</h3>
+						<p>future dropzone area</p>
+						<div class="progress" data-bind="visible: startProjectUploadFile() != ''">
+							<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" data-bind="style: { width: startProjectUpload }"></div>
+						</div>
+					</div>
+					<div class="fallback">
+						<input name="file" type="file" multiple />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">Modal title</h4>
+			</div>
+			<div class="modal-body">
+				<p>One fine body&hellip;</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default">Cancel</button>
+				<button type="button" class="btn btn-primary">Add Project</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

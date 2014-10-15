@@ -16,8 +16,7 @@ requirejs.config({
 
     // classes
     'Skill': 'lib/classes/Skill',
-    'Character': 'lib/classes/Character',
-    'CharacterClass': 'lib/classes/CharacterClass',
+    'Project': 'lib/classes/Project',
 
     // util
     'statistics': 'lib/statistics'

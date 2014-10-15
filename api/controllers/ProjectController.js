@@ -35,6 +35,7 @@ module.exports = {
   create: function (req, res) {
     var newProject = {
       name: req.param('name'),
+      image: req.param('image'),
       link: req.param('link'),
       skills: req.param('skills'),
       description: req.param('description')
@@ -55,6 +56,7 @@ module.exports = {
   update: function (req, res) {
     var updatedProject = {
       name: req.param('name'),
+      image: req.param('image'),
       link: req.param('link'),
       skills: req.param('skills'),
       description: req.param('description')

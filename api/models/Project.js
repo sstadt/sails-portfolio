@@ -15,9 +15,12 @@ module.exports = {
       type: 'string',
       required: true
     },
-    link: {
+    image: {
       type: 'string',
       required: true
+    },
+    link: {
+      type: 'string'
     },
     skills: {
       type: 'array'
