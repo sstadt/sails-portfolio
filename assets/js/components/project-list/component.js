@@ -12,7 +12,7 @@ define([
   'use strict';
 
   function ProjectListViewModel() {
-    
+
     var self = this, // cache this to eliminate the need to pass context to jquery and lodash functions
       startProject = new Dropzone('#startProject', {
         url: '/project/start',
@@ -27,12 +27,15 @@ define([
           self.startProjectUpload('0%');
 
           // start new project
-          self.newProjectName = ko.observable('New Project');
-          self.newProjectImage(response.url);
-          self.newProjectSkills = ko.observable('');
-          self.newProjectDescription = ko.observable('');
+          self.selectedProject(new Project({
+            name: 'New Project',
+            image: response.url,
+            skills: '',
+            descriptiom: ''
+          }));
 
           // open the modal
+          $('#editProject').modal('show');
         }
       });
 
@@ -40,17 +43,35 @@ define([
     self.projects = ko.observableArray([]);
 
     // selected project data
-    self.selectedProject = ko.observable();
+    self.selectedProject = ko.observable({});
 
     // new project upload data
     self.startProjectUpload = ko.observable('0%');
     self.startProjectUploadFile = ko.observable('');
 
-    // new project data
-    self.newProjectName = ko.observable();
-    self.newProjectImage = ko.observable();
-    self.newProjectSkills = ko.observable();
-    self.newProjectDescription = ko.observable();
+    self.saveProject = function () {
+      var create = _.isUndefined(self.selectedProject().id),
+        endpoint = create ? '/project/create' : '/project/update';
+
+      io.socket.post(endpoint, self.selectedProject(), function (response) {
+        if (response.success) {
+          var project = new Project(response.project),
+            projectIndex;
+
+          if (create) {
+            self.project.push(project);
+          } else {
+            projectIndex = _.findIndex(self.projects(), function (p) {
+              return p.id === project.id;
+            });
+            self.projects.replace(self.projects()[projectIndex], project);
+          }
+        } else {
+          alert('error');
+          console.log(response.err);
+        }
+      });
+    };
 
     // io.socket.get('/skill/show', function (response) {
     //   if (response.success) {
