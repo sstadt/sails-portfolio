@@ -13,7 +13,7 @@ var aws = require('../services/aws.js'),
 
 module.exports = {
 
-  start: function (req, res) {
+  upload: function (req, res) {
     req.file('file').upload(function (err, file) {
       if (err) {
         res.serverError('Unable to upload file.', err);
@@ -66,9 +66,9 @@ module.exports = {
       if (err) {
         res.json(err);
       } else {
-        res.jason({
+        res.json({
           success: true,
-          project: project
+          project: project[0]
         });
       }
     });
@@ -79,7 +79,7 @@ module.exports = {
       if (err) {
         res.json(err);
       } else {
-        req.json({
+        res.json({
           success: true,
           projects: projects
         });
@@ -89,6 +89,18 @@ module.exports = {
 
   destroy: function (req, res) {
     Project.destroy(req.param('id'), function (err) {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json({
+          success: true
+        });
+      }
+    });
+  },
+
+  destroyall: function (req, res) {
+    Project.destroy(function (err) {
       if (err) {
         res.json(err);
       } else {

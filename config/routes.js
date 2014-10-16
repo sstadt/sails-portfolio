@@ -42,9 +42,13 @@ module.exports.routes = {
   },
 
   // projects
-  '/project/start': {
+  '/project/upload': {
     controller: 'Project',
-    action: 'start'
+    action: 'upload'
+  },
+  '/project/destroyall': {
+    controller: 'Project',
+    action: 'destroyall'
   }
 
   /***************************************************************************

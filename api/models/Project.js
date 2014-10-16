@@ -23,7 +23,7 @@ module.exports = {
       type: 'string'
     },
     skills: {
-      type: 'array'
+      type: 'string'
     },
     description: {
       type: 'string'
