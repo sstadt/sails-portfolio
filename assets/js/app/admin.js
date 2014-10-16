@@ -7,6 +7,8 @@ require(['knockout', 'dropzone'], function (ko, Dropzone) {
 
   ko.components.register('project-list', { require: 'components/project-list/component' });
 
+  ko.components.register('link-list', { require: 'components/link-list/component' });
+
   // apply character list view model to the dom
   ko.applyBindings();
 });

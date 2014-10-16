@@ -36,7 +36,7 @@ module.exports = {
       } else {
         res.json({
           success: true,
-          link: link[0]
+          link: link
         });
       }
     });

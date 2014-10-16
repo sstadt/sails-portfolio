@@ -14,18 +14,40 @@
 				</tr>
 			</thead>
 			<tbody>
+				<!-- ko foreach: links -->
 				<tr>
-					<td>Some Link</td>
-					<td>Click me!</td>
-					<td>http://www.somelink.com</td>
+					<td data-bind="text: name"></td>
+					<td data-bind="text: caption"></td>
+					<td data-bind="text: link"></td>
 					<td>
-						<div class="pull-right">
-							<button class="btn btn-xs btn-primary pull-left"><i class="glyphicon glyphicon-edit"></i></button>
-							<button class="btn btn-xs btn-danger pull-left"><i class="glyphicon glyphicon-minus"></i></button>
+						<div class="pull-right controls">
+							<button class="btn btn-xs btn-primary pull-left">
+								<i class="glyphicon glyphicon-edit"></i>
+							</button>
+							<button class="btn btn-xs btn-danger pull-left">
+								<i class="glyphicon glyphicon-trash"></i>
+							</button>
 						</div>
 					</td>
 				</tr>
+				<!-- /ko -->
 			</tbody>
 		</table>
+			<form class="form-inline" data-bind="submit: addLink">
+				<div class="form-group">
+					<input type="text" placeholder="Name" class="form-control input-sm" data-bind="textInput: newLinkName" />
+				</div>
+				<div class="form-group">
+					<input type="text" placeholder="Caption" class="form-control input-sm" data-bind="textInput: newLinkCaption" />
+				</div>
+				<div class="form-group">
+					<input type="text" placeholder="Link" class="form-control input-sm" data-bind="textInput: newLinkLink" />
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-sm btn-success pull-right">
+						<i class="glyphicon glyphicon-plus"></i>
+					</button>
+				</div>
+			</form>
 	</div>
 </div>
