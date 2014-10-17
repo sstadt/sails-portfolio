@@ -27,6 +27,9 @@
     "requirejs": "~2.1.15",
     "requirejs-text": "~2.0.12",
     "dropzone": "~3.10.2",
-    "sails.io.js": "~0.10.3"
+    "sails.io.js": "~0.10.3",
+    "fittext": "*",
+    "jquery.scrollTo": "~1.4.13",
+    "jquery.transit": "~0.9.12"
   }
 }

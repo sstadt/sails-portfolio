@@ -9,6 +9,8 @@ requirejs.config({
     // vendor
     'sails': 'vendor/sails.io.js/dist/sails.io',
     'jquery': 'vendor/jquery/dist/jquery',
+    'fittext': 'vendor/fittext/fittext',
+    'vslider': 'vendor/legacy/jquery.VerticalSlider',
     'lodash': 'vendor/lodash/dist/lodash',
     'bootstrap': 'vendor/bootstrap/dist/js/bootstrap',
     'knockout': 'vendor/knockout/dist/knockout',
@@ -21,6 +23,12 @@ requirejs.config({
   },
   shim: {
     'bootstrap': {
+      deps: ['jquery']
+    },
+    'fittext': {
+      deps: ['jquery']
+    },
+    'vslider': {
       deps: ['jquery']
     }
   },

@@ -1,1 +1,109 @@
-<h1>Future home of my sails-driven portfolio!!!</h1>
+<div id="header" class="wrapper">
+	<img src="/images/logo_glasses.png" height="79" width="101" alt="Logo" />
+	<ul id="nav">
+		<li><a href="#expertise">Expertise</a></li>
+		<li><a href="#portfolio">Portfolio</a></li>
+		<li><a href="#contact">Contact</a></li>
+	</ul>
+</div><!-- #header -->
+
+<div id="welcome" class="wrapper">
+	<h3>
+		<span id="welcome-txt">welcome</span>
+	</h3>
+	<div id="intro" class="container">
+		<p>My name is Scott Stadt, and I love to build</p>
+		<h1>Beautiful Websites</h1>
+		<p>I’m a web developer and designer currently located in Saint Charles, IL. My design and development skills range from simple brochure style websites with semantic, search engine friendly markup, to fully database-driven web applications. My Photoshop skills are strong, and I am focused on design patterns that drive website conversions. Above all the web is my home, and one true passion.</p>
+	</div>
+	<h3></h3>
+</div><!-- #welcome -->
+
+<div id="u-trim" class="full-wrapper"></div>
+<div id="expertise" class="full-wrapper">
+	<div class="wrapper">
+		<div id="design">
+			<h2>Design</h2>
+			<ul>
+				<% _.each(design, function (skill) { %>
+					<li><%= skill.name %></li>
+				<% }) %>
+			</ul>
+		</div>
+		<img src="/images/ampersand.jpg" height="190" width="188" alt="&amp;"/>
+		<div id="development">
+			<h2>Development</h2>
+			<ul>
+				<% _.each(development, function (skill) { %>
+					<li><%= skill.name %></li>
+				<% }) %>
+			</ul>
+		</div>
+	</div>
+</div><!-- #expertise -->
+<div id="l-trim" class="full-wrapper"></div>
+
+<div id="portfolio" class="wrapper">
+	<h3>
+		<span id="portfolio-txt">portfolio</span>
+	</h3>
+	
+	<a href="#" id="pf-prev">Previous</a>
+	<div id="pf">
+		<div id="pf-content">
+			<% _.each(projects, function (project) { %>
+				<div class="project">
+					<img src="<%= project.image %>">
+					<a href="<%= project.link %>" target="_blank" class="link"></a>
+					<div>
+						<h2><%= project.name %></h2>
+						<p><%= project.skills %></p>
+						<p><%= project.description %></p>
+					</div>
+				</div><!-- .project -->
+			<% }) %>
+		</div><!-- #pf-content -->
+	</div>
+	<a href="#" id="pf-next">Next</a>
+
+</div><!-- #portfolio -->
+
+<div id="contact" class="wrapper">
+	<h3>
+		<span id="contact-txt">contact</span>
+	</h3>
+	
+	<div id="contact-info" class="half-wrapper">
+		<h2>Get in Touch...</h2>
+		<p>The best way to reach me is through the contact form at the right. Just fill out the fields with an *, and you’re on your way!</p>
+		<p>I’m usually near my phone or other device so my response times can be pretty quick... but just in case, here are some other ways to get ahold of me:</p>
+		<ul>
+			<% _.each(links, function (link) { %>
+				<li><%= link.name %> <a href="<%= link.link %>"><%= link.caption %></a></li>
+			<% }) %>
+			<!--
+				<li>LinkedIn: <a href="http://www.linkedin.com/pub/scott-stadt/50/395/ab1/">linkedin.com/scott-stadt</a></li>
+				<li>Email: <a href="mailto:scott.stadt@gmail.com">scott.stadt@gmail.com</a></li>
+				<li>Code: <a href="https://www.codeeval.com/profile/sstadt/">Code Eval</a></li>
+				<li>Open Source: <a href="https://github.com/sstadt">GitHub Profile</a></li>
+				<li>Resume: <a href="https://docs.google.com/document/d/1FZNr-EUXq92SW_2Uxsmbzgzn6aDQoPftnrPanvJfNl8/edit?usp=sharing">Online Resume</a></li>
+			-->
+		</ul>
+	</div><!-- #contact-info -->
+	
+	<div id="contact-form" class="half-wrapper">
+		<!-- contact form goes here -->
+	</div><!-- #contact-form -->
+
+</div><!-- #contact -->
+
+<div id="footer" class="full-wrapper">
+	<div class="wrapper">
+		<p>Powered by WordPress. Theme &copy; <%= sails.config.globals.site.title %>, <%= new Date().getFullYear() %>. All Rights Reserved. Hosted by <a href="http://www.ipage.com/join/index.bml?AffID=715195&amp;LinkName=home page">iPage.</a> </p>
+	</div>
+</div>
+
+<div id="scroll-top"><a href="#top"></a></div>
+
+<script src="/js/vendor/requirejs/require.js" data-main="/js/portfolio-app.js"></script>
+

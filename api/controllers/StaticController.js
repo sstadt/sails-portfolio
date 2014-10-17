@@ -9,34 +9,46 @@
  */
 
 module.exports = {
+
   portfolio: function (req, res) {
-    Skill.find()
-      .then(function (skills) {
-        var projects = Project.find().limit(sails.config.globals.site.projectFeedLimit).then(function (projects) {
-          return projects;
-        });
-
-        return [skills, projects];
-      }).spread(function (skills, projects) {
-        var links = Link.find().then(function (links) {
-          return links;
-        });
-
-        res.view({
-          title: 'Portfolio',
-          skills: skills,
-          projects: projects,
-          links: links
-        });
-      }).catch(function (err) {
+    Skill.find(function (err, skills) {
+      if (err) {
         console.log(err);
         res.send(500);
+      }
+
+      Project.find({
+        limit: sails.config.globals.site.projectFeedLimit
+      }, function (err, projects) {
+        if (err) {
+          console.log(err);
+          res.send(500);
+        }
+
+        Link.find(function (err, links) {
+          if (err) {
+            console.log(err);
+            res.send(500);
+          }
+
+          res.view({
+            title: 'Portfolio',
+            design: _.filter(skills, function (skill) { return skill.category === 'design'; }),
+            development: _.filter(skills, function (skill) { return skill.category === 'development'; }),
+            projects: projects,
+            links: links
+          });
+
+        });
       });
+    });
   },
+
   admin: function (req, res) {
     res.view({
       title: 'Admin'
     });
   }
+
 };
 
