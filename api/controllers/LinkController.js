@@ -55,7 +55,7 @@ module.exports = {
       } else {
         res.json({
           success: true,
-          link: link
+          link: link[0]
         });
       }
     });

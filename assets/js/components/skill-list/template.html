@@ -6,26 +6,24 @@
 		<div class="row">
 			<div class="col-sm-12 col-md-6">
 				<h2>Design Skills</h2>
-				<div class="list-group" data-bind="visible: design().length > 0, template: { 
-					foreach: design,
-					beforeRemove: hideSkillElement,
-					afterAdd: showSkillElement
-				}">
+				<div class="list-group" data-bind="visible: design().length > 0, foreach: design">
 					<a href="#" class="list-group-item" data-bind="click: $parent.editSkill">
 						<div data-bind="visible: !edit">
 							<span data-bind="text: name"></span>
-							<button type="button" class="btn btn-danger btn-xs pull-right" data-bind="click: $parent.removeSkill, clickBubble: false">
-								<i class="glyphicon glyphicon-trash"></i>
-							</button>
+							<div class="pull-right controls">
+								<button type="button" class="btn btn-danger btn-xs pull-left" data-bind="click: $parent.removeSkill, clickBubble: false">
+									<i class="glyphicon glyphicon-trash"></i>
+								</button>
+							</div>
 						</div>
 						<form data-bind="visible: edit">
 							<input type="form-control form-inline" data-bind="value: tempName">
-							<div class="pull-right">
+							<div class="pull-right controls">
+								<button type="button" class="btn btn-default btn-xs pull-left" data-bind="click: $parent.cancelUpdate">
+									<i class="glyphicon glyphicon-remove"></i>
+								</button>
 								<button type="submit" class="btn btn-success btn-xs pull-left" data-bind="click: $parent.updateSkill">
 									<i class="glyphicon glyphicon-ok"></i>
-								</button>
-								<button type="button" class="btn btn-info btn-xs pull-left" data-bind="click: $parent.cancelUpdate">
-									<i class="glyphicon glyphicon-remove"></i>
 								</button>
 							</div>
 						</form>
@@ -44,26 +42,24 @@
 			</div>
 			<div class="col-sm-12 col-md-6">
 				<h2>Development Skills</h2>
-				<div class="list-group" data-bind="visible: development().length > 0, template: {
-					foreach: development,
-					beforeRemove: hideSkillElement,
-					afterAdd: showSkillElement
-				}">
+				<div class="list-group" data-bind="visible: development().length > 0, foreach: development">
 					<a href="#" class="list-group-item" data-bind="click: $parent.editSkill">
 						<div data-bind="visible: !edit">
 							<span data-bind="text: name"></span>
-							<button type="button" class="btn btn-danger btn-xs pull-right" data-bind="click: $parent.removeSkill, clickBubble: false">
-								<i class="glyphicon glyphicon-trash"></i>
-							</button>
+							<div class="pull-right controls">
+								<button type="button" class="btn btn-danger btn-xs pull-left" data-bind="click: $parent.removeSkill, clickBubble: false">
+									<i class="glyphicon glyphicon-trash"></i>
+								</button>
+							</div>
 						</div>
 						<form data-bind="visible: edit">
 							<input type="form-control form-inline" data-bind="value: tempName">
-							<div class="pull-right">
+							<div class="pull-right controls">
+								<button type="button" class="btn btn-default btn-xs pull-left" data-bind="click: $parent.cancelUpdate">
+									<i class="glyphicon glyphicon-remove"></i>
+								</button>
 								<button type="submit" class="btn btn-success btn-xs pull-left" data-bind="click: $parent.updateSkill">
 									<i class="glyphicon glyphicon-ok"></i>
-								</button>
-								<button type="button" class="btn btn-info btn-xs pull-left" data-bind="click: $parent.cancelUpdate">
-									<i class="glyphicon glyphicon-remove"></i>
 								</button>
 							</div>
 						</form>

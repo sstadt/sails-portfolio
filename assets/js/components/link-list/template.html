@@ -4,50 +4,57 @@
 		<h3 class="panel-title">Links</h3>
 	</div>
 	<div class="panel-body">
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<td>Title</td>
-					<td>Caption</td>
-					<td>Link</td>
-					<td></td>
-				</tr>
-			</thead>
-			<tbody>
-				<!-- ko foreach: links -->
-				<tr>
-					<td data-bind="text: name"></td>
-					<td data-bind="text: caption"></td>
-					<td data-bind="text: link"></td>
-					<td>
-						<div class="pull-right controls">
-							<button class="btn btn-xs btn-primary pull-left">
-								<i class="glyphicon glyphicon-edit"></i>
-							</button>
-							<button class="btn btn-xs btn-danger pull-left">
-								<i class="glyphicon glyphicon-trash"></i>
-							</button>
-						</div>
-					</td>
-				</tr>
-				<!-- /ko -->
-			</tbody>
-		</table>
-			<form class="form-inline" data-bind="submit: addLink">
-				<div class="form-group">
-					<input type="text" placeholder="Name" class="form-control input-sm" data-bind="textInput: newLinkName" />
-				</div>
-				<div class="form-group">
-					<input type="text" placeholder="Caption" class="form-control input-sm" data-bind="textInput: newLinkCaption" />
-				</div>
-				<div class="form-group">
-					<input type="text" placeholder="Link" class="form-control input-sm" data-bind="textInput: newLinkLink" />
-				</div>
-				<div class="form-group">
-					<button type="submit" class="btn btn-sm btn-success pull-right">
-						<i class="glyphicon glyphicon-plus"></i>
+		<div class="row">
+			<div class="col-xs-12 col-md-3"><h4>Title</h4></div>
+			<div class="col-xs-12 col-md-3"><h4>Caption</h4></div>
+			<div class="col-xs-12 col-md-3"><h4>Link</h4></div>
+			<div class="col-xs-12 col-md-3"></div>
+		</div>
+		<!-- ko foreach: links -->
+		<div class="row" data-bind="visible: !edit">
+			<div class="col-xs-12 col-md-3"><p data-bind="text: name"></p></div>
+			<div class="col-xs-12 col-md-3"><p data-bind="text: caption"></p></div>
+			<div class="col-xs-12 col-md-3"><p data-bind="text: link"></p></div>
+			<div class="col-xs-12 col-md-3">
+				<div class="pull-right controls">
+					<button class="btn btn-xs btn-primary pull-left" data-bind="click: $parent.toggleEdit">
+						<i class="glyphicon glyphicon-edit"></i>
+					</button>
+					<button class="btn btn-xs btn-danger pull-left" data-bind="click: $parent.removeLink">
+						<i class="glyphicon glyphicon-trash"></i>
 					</button>
 				</div>
+			</div>
+		</div>
+		<div class="row" data-bind="visible: edit">
+			<div class="col-xs-12 col-md-3"><input type="text" data-bind="textInput: tempName" /></div>
+			<div class="col-xs-12 col-md-3"><input type="text" data-bind="textInput: tempCaption" /></div>
+			<div class="col-xs-12 col-md-3"><input type="text" data-bind="textInput: tempLink" /></div>
+			<div class="col-xs-12 col-md-3">
+				<div class="pull-right controls">
+					<button class="btn btn-xs btn-default pull-left" data-bind="click: $parent.toggleEdit">
+						<i class="glyphicon glyphicon-remove"></i>
+					</button>
+					<button type="submit" class="btn btn-xs btn-success pull-left" data-bind="click: $parent.updateLink">
+						<i class="glyphicon glyphicon-ok"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- /ko -->
+		<div class="row">
+			<form data-bind="submit: addLink">
+				<div class="col-xs-12 col-md-3"><input type="text" data-bind="textInput: newLinkName" /></div>
+				<div class="col-xs-12 col-md-3"><input type="text" data-bind="textInput: newLinkCaption" /></div>
+				<div class="col-xs-12 col-md-3"><input type="text" data-bind="textInput: newLinkLink" /></div>
+				<div class="col-xs-12 col-md-3">
+					<div class="pull-right controls">
+						<button type="submit" class="btn btn-xs btn-success pull-left">
+							<i class="glyphicon glyphicon-plus"></i>
+						</button>
+					</div>
+				</div>
 			</form>
+		</div>
 	</div>
 </div>
