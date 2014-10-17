@@ -1,3 +1,6 @@
+/*jslint node: true*/
+/*globals Skill, Project, Link, sails*/
+
 /**
  * StaticController
  *
@@ -7,9 +10,28 @@
 
 module.exports = {
   portfolio: function (req, res) {
-    res.view({
-      title: 'Portfolio'
-    });
+    Skill.find()
+      .then(function (skills) {
+        var projects = Project.find().limit(sails.config.globals.site.projectFeedLimit).then(function (projects) {
+          return projects;
+        });
+
+        return [skills, projects];
+      }).spread(function (skills, projects) {
+        var links = Link.find().then(function (links) {
+          return links;
+        });
+
+        res.view({
+          title: 'Portfolio',
+          skills: skills,
+          projects: projects,
+          links: links
+        });
+      }).catch(function (err) {
+        console.log(err);
+        res.send(500);
+      });
   },
   admin: function (req, res) {
     res.view({
