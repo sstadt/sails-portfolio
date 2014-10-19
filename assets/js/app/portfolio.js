@@ -1,15 +1,9 @@
 /*jslint browser: true*/
 
-require(['jquery', 'fittext', 'vslider'], function ($) {
+require(['jquery', 'fittext'], function ($) {
   'use strict';
 
   var btnTop = $('#scroll-top a');
-
-  // set up submit button for styling
-  $('#contact_form input:last').addClass('submit');
-
-  // set up the portfolio scroller
-  $('#pf').vslider();
 
   // set up the responsive header
   window.fitText($('h1'), 1.2);

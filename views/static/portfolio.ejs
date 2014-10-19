@@ -46,32 +46,29 @@
 				</ul>
 			</div>
 		</div>
-	</div><!-- #expertise -->
+	</div>
 	<div id="l-trim" class="row"></div>
 
-	<div id="portfolio" class="row">
+	<div class="row">
 		<div class="col-xs-12">
 			<h3><span id="portfolio-txt">portfolio</span></h3>
-			
-			<a href="#" id="pf-prev">Previous</a>
-			<div id="pf">
-				<div id="pf-content">
-					<% _.each(projects, function (project) { %>
-						<div class="project">
-							<img src="<%= project.image %>">
-							<a href="<%= project.link %>" target="_blank" class="link"></a>
-							<div>
-								<h2><%= project.name %></h2>
-								<p><%= project.skills %></p>
-								<p><%= project.description %></p>
-							</div>
-						</div><!-- .project -->
-					<% }) %>
-				</div><!-- #pf-content -->
-			</div>
-			<a href="#" id="pf-next">Next</a>
 		</div>
-	</div><!-- #portfolio -->
+	</div>
+	<div id="portfolio" class="row">
+		<% _.each(projects, function (project) { %>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="project thumbnail">
+					<a href="<%= project.link %>" target="_blank">
+						<img src="<%= project.image %>">
+						<div class="caption">
+							<h2><%= project.name %></h2>
+							<p><%= project.skills %></p>
+						</div>
+					</a>
+				</div>
+			</div>
+		<% }) %>
+	</div>
 
 	<div id="contact" class="row">
 		<div class="col-xs-12">
@@ -87,7 +84,7 @@
 					<li><%= link.name %>: <a href="<%= link.link %>"><%= link.caption %></a></li>
 				<% }) %>
 			</ul>
-		</div><!-- #contact-info -->
+		</div>
 		
 		<div id="contact-form" class="col-xs-12 col-md-6">
 			<!-- contact form goes here -->
@@ -112,9 +109,9 @@
 					<input type="submit" class="submit" value="Submit" />
 				</div>
 			</form>
-		</div><!-- #contact-form -->
+		</div>
 
-	</div><!-- #contact -->
+	</div>
 
 	<div id="footer" class="row">
 		<div class="col-xs-12">

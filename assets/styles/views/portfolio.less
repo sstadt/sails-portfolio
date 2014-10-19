@@ -334,105 +334,54 @@ Last Revised: 10/18/2014
 
 	/*-------- Portfolio --------*/
 
-	#pf {
-		height: 547px;
-		overflow: hidden;
-		margin: 20px 10px;
-	}
-
 	#portfolio {
-		a {
-			display: block;
-			margin: 0 auto;
-			height: 32px;
-			width: 210px;
-			text-indent: -9999px;
-			background-image: url('images/btn_portfolio-nav.png');
-			background-repeat: no-repeat;
-
-			&:nth-of-type(2) {
-				background-position: 0 -32px;
-			}
-		}
+		margin-top: 20px;
 
 		.project {
 			position: relative;
-			overflow: hidden;
-			height: 277px;
+			background-color: transparent;
+			border: 0;
+			padding: 0;
 
-			img {
-				float: left;
-				padding: 16px 23px;
-				background-image: url('images/bg_project.png');
-				background-repeat: no-repeat;
-
-				@media(@xs) {
-					background-image: none;
-					margin: 0 auto;
-					padding: 16px 0;
-					max-width: 100%;
-					float: none;
-				}
-			}
-
-			div {
-				float: left;
-				width: 820px;
-				margin-left: 20px;
-
-				@media(@xs) {
-					display: none;
-				}
-
-				@media(@sm) {
-					width: 300px;
-				}
-
-				@media(@md) {
-					width: 500px;
-				}
-			}
-
-			h2 {
-				margin: 0;
-			}
-
-			p:nth-of-type(1) {
-				margin-top: 0;
-				font-size: 18px;
-				color: @charcoal;
-
-				@media(@sm) {
-					font-size: 14px;
-				}
-			}
-
-			a.link {
-				opacity: 0.4;
+			.caption {
 				position: absolute;
-				display: block;
-				height: 54px;
-				width: 54px;
-				top: 181px;
-				left: 323px;
-				background-image: url('images/btn_link.png');
-				background-repeat: no-repeat;
-				-webkit-transition: @transition-opacity;
-				-moz-transition: @transition-opacity;
-				-ms-transition: @transition-opacity;
-				-o-transition: @transition-opacity;
-				transition: @transition-opacity;
+				bottom: 0;
+				background-color: @dark-gray;
+				color: @cream;
+				width: 100%;
+				overflow: hidden;
+				padding-bottom: 0;
 
-				@media(@xs) {
-					left: 300px;
+				h2 {
+					padding: 0;
+					margin-top: 0;
+					margin-bottom: 9px;
+					font-size: 24px;
 				}
 
-				&:hover {
-					opacity: 1;
+				p {
+					max-height: 0;
+					margin-bottom: 0;
+					font-size: 14px;
+					-webkit-transition: @transition-all-fast;
+					-moz-transition: @transition-all-fast;
+					-ms-transition: @transition-all-fast;
+					-o-transition: @transition-all-fast;
+					transition: @transition-all-fast;
+				}
+			}
+
+			&:hover {
+				.caption {
+					p {
+						max-height: 16px;
+						margin-bottom: 9px;
+					}
 				}
 			}
 		}
 	}
+		
 
 	/*-------- Contact --------*/
 
