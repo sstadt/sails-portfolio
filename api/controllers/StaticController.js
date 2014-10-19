@@ -8,6 +8,8 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
+var mailer = require('../services/mail.js');
+
 module.exports = {
 
   portfolio: function (req, res) {
@@ -47,6 +49,22 @@ module.exports = {
   admin: function (req, res) {
     res.view({
       title: 'Admin'
+    });
+  },
+
+  contact: function (req, res) {
+    var to = sails.config.email.contact.address,
+      from = sails.config.email.noreply.address,
+      password = sails.config.email.noreply.password,
+      subject = 'ScottStadt.com ' + req.param('subject'),
+      message = req.param('name') + ' (' + req.param('email') + "): \n\n" + req.param('message');
+
+    mailer.sendMail(to, from, password, subject, message, function (err) {
+      if (err) {
+        res.serverError('Unable to send mail');
+      } else {
+        res.json({ success: true });
+      }
     });
   }
 

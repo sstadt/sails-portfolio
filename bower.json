@@ -30,6 +30,7 @@
     "sails.io.js": "~0.10.3",
     "fittext": "*",
     "jquery.scrollTo": "~1.4.13",
-    "jquery.transit": "~0.9.12"
+    "jquery.transit": "~0.9.12",
+    "bootstrapValidator": "~0.5.2"
   }
 }

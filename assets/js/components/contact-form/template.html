@@ -1,0 +1,29 @@
+<form id="contact-form" data-bind="submit: sendMessage">
+	<div class="form-group">
+		<label>Name</label>
+		<div class="input-wrap">
+			<input type="text" class="form-control" name="contactName" data-bind="textInput: name" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label>Email Address</label>
+		<div class="input-wrap">
+			<input type="text" class="form-control" name="contactEmail" data-bind="textInput: email" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label>Subject</label>
+		<div class="input-wrap">
+			<input type="text" class="form-control" name="contactSubject" data-bind="textInput: subject" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label>Message</label>
+		<div class="input-wrap">
+			<textarea class="form-control" name="contactMessage" data-bind="textInput: message"></textarea>
+		</div>
+	</div>
+	<div class="form-group">
+		<input type="submit" class="submit" value="Submit" />
+	</div>
+</form>

@@ -1,6 +1,6 @@
 /*jslint browser: true*/
 
-require(['jquery', 'fittext'], function ($) {
+require(['jquery', 'knockout', 'fittext', 'bsvalidate'], function ($, ko) {
   'use strict';
 
   var btnTop = $('#scroll-top a');
@@ -31,4 +31,9 @@ require(['jquery', 'fittext'], function ($) {
       btnTop.animate({ marginTop: 0 }, { queue: false });
     }
   });
+
+  ko.components.register('contact-form', { require: 'components/contact-form/component' });
+
+  // apply character list view model to the dom
+  ko.applyBindings();
 });

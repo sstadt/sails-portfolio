@@ -12,6 +12,7 @@ requirejs.config({
     'fittext': 'vendor/fittext/fittext',
     'lodash': 'vendor/lodash/dist/lodash',
     'bootstrap': 'vendor/bootstrap/dist/js/bootstrap',
+    'bsvalidate': 'vendor/bootstrapValidator/dist/js/bootstrapValidator',
     'knockout': 'vendor/knockout/dist/knockout',
     'dropzone': 'vendor/dropzone/downloads/dropzone',
 
@@ -23,6 +24,9 @@ requirejs.config({
   shim: {
     'bootstrap': {
       deps: ['jquery']
+    },
+    'bsvalidate': {
+      deps: ['bootstrap']
     },
     'fittext': {
       deps: ['jquery']

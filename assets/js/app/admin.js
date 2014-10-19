@@ -1,6 +1,6 @@
 /*jslint browser: true*/
 
-require(['knockout', 'dropzone'], function (ko, Dropzone) {
+require(['knockout'], function (ko) {
   'use strict';
 
   ko.components.register('skill-list', { require: 'components/skill-list/component' });
