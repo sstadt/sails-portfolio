@@ -7,7 +7,7 @@ To Do list:
 - [x] Update portfolio page to use sails templates
 - [x] Rework portfolio layout to use bootstrap grid
 - [x] Refactor portfolio CSS into LESS
-- [ ] Build contact form knockout module
+- [x] Build contact form knockout module
 - [ ] Import User and Session controllers from nanny monster
 - [ ] Build login page
 - [ ] Implement policy control for pages
