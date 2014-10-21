@@ -32,6 +32,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  // static pages
   '/': {
     controller: 'Static',
     action: 'portfolio'
@@ -39,6 +40,10 @@ module.exports.routes = {
   '/admin': {
     controller: 'Static',
     action: 'admin'
+  },
+  '/gallery': {
+    controller: 'Static',
+    action: 'gallery'
   },
 
   // projects

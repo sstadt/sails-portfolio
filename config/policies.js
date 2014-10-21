@@ -37,6 +37,7 @@ module.exports.policies = {
 
   StaticController: {
     portfolio: 'everyone',
+    gallery: 'everyone',
     admin: 'sessionAuth'
   },
 

@@ -52,6 +52,12 @@ module.exports = {
     });
   },
 
+  gallery: function (req, res) {
+    res.view({
+      title: 'Gallery'
+    });
+  },
+
   contact: function (req, res) {
     var to = sails.config.email.contact.address,
       from = sails.config.email.noreply.address,
