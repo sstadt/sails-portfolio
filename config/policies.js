@@ -55,6 +55,10 @@ module.exports.policies = {
     '*': 'socketAuth'
   },
 
+  UserController: {
+    '*': 'sessionAuth'
+  },
+
 	// RabbitController: {
 
 		// Apply the `false` policy as the default for all of RabbitController's actions
