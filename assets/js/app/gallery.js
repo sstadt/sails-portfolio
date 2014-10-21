@@ -19,8 +19,7 @@ require(['jquery'], function ($) {
         d = $(document).height(),
         c = $(window).height(),
         scrollpos = s / (d - c),
-        moonpos = trackspace - Math.floor(trackspace * scrollpos),
-        starpos = '0px -' + Math.floor(100 * scrollpos) + 'px';
+        moonpos = trackspace - Math.floor(trackspace * scrollpos);
 
       if (initSky === true) {
         moon.css('top', moonpos);
