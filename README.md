@@ -12,12 +12,11 @@ To Do list:
 - [x] Build login page
 - [x] Implement policy control for pages
 - [ ] Build password recovery into User controller
-- [ ] Import image gallery page
+- [x] Import image gallery page
 - [ ] Set up dropzone config area in admin for gallery images
 - [ ] Rework image gallery markup to use bootstrap
 - [ ] Refactor image gallery CSS into LESS
 - [ ] Refactor gallery javascript to use image gallery plugin
-- [ ] Re-add star parallax to javascript
 
 To set up the project:
 
