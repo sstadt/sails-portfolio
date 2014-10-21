@@ -5,17 +5,17 @@
 	</div>
 	<div class="panel-body">
 		<div class="row">
-			<div class="col-xs-12 col-md-3"><h4>Title</h4></div>
-			<div class="col-xs-12 col-md-3"><h4>Caption</h4></div>
-			<div class="col-xs-12 col-md-3"><h4>Link</h4></div>
-			<div class="col-xs-12 col-md-3"></div>
+			<div class="col-xs-12 col-sm-3"><h4>Title</h4></div>
+			<div class="col-xs-12 col-sm-3"><h4>Caption</h4></div>
+			<div class="col-xs-12 col-sm-4"><h4>Link</h4></div>
+			<div class="col-xs-12 col-sm-2"></div>
 		</div>
 		<!-- ko foreach: links -->
 		<div class="row" data-bind="visible: !edit">
-			<div class="col-xs-12 col-md-3"><p data-bind="text: name"></p></div>
-			<div class="col-xs-12 col-md-3"><p data-bind="text: caption"></p></div>
-			<div class="col-xs-12 col-md-3"><p data-bind="text: link"></p></div>
-			<div class="col-xs-12 col-md-3">
+			<div class="col-xs-12 col-sm-3"><p data-bind="text: name"></p></div>
+			<div class="col-xs-12 col-sm-3"><p data-bind="text: caption"></p></div>
+			<div class="col-xs-12 col-sm-4"><p data-bind="text: link"></p></div>
+			<div class="col-xs-12 col-sm-2">
 				<div class="pull-right controls">
 					<button class="btn btn-xs btn-primary pull-left" data-bind="click: $parent.toggleEdit">
 						<i class="glyphicon glyphicon-edit"></i>
@@ -27,10 +27,10 @@
 			</div>
 		</div>
 		<div class="row" data-bind="visible: edit">
-			<div class="col-xs-12 col-md-3"><input type="text" data-bind="textInput: tempName" /></div>
-			<div class="col-xs-12 col-md-3"><input type="text" data-bind="textInput: tempCaption" /></div>
-			<div class="col-xs-12 col-md-3"><input type="text" data-bind="textInput: tempLink" /></div>
-			<div class="col-xs-12 col-md-3">
+			<div class="col-xs-12 col-sm-3"><input type="text" data-bind="textInput: tempName" /></div>
+			<div class="col-xs-12 col-sm-3"><input type="text" data-bind="textInput: tempCaption" /></div>
+			<div class="col-xs-12 col-sm-4"><input type="text" data-bind="textInput: tempLink" /></div>
+			<div class="col-xs-12 col-sm-2">
 				<div class="pull-right controls">
 					<button class="btn btn-xs btn-default pull-left" data-bind="click: $parent.toggleEdit">
 						<i class="glyphicon glyphicon-remove"></i>
@@ -44,10 +44,10 @@
 		<!-- /ko -->
 		<div class="row">
 			<form data-bind="submit: addLink">
-				<div class="col-xs-12 col-md-3"><input type="text" data-bind="textInput: newLinkName" /></div>
-				<div class="col-xs-12 col-md-3"><input type="text" data-bind="textInput: newLinkCaption" /></div>
-				<div class="col-xs-12 col-md-3"><input type="text" data-bind="textInput: newLinkLink" /></div>
-				<div class="col-xs-12 col-md-3">
+				<div class="col-xs-12 col-sm-3"><input type="text" data-bind="textInput: newLinkName" /></div>
+				<div class="col-xs-12 col-sm-3"><input type="text" data-bind="textInput: newLinkCaption" /></div>
+				<div class="col-xs-12 col-sm-4"><input type="text" data-bind="textInput: newLinkLink" /></div>
+				<div class="col-xs-12 col-sm-2">
 					<div class="pull-right controls">
 						<button type="submit" class="btn btn-xs btn-success pull-left">
 							<i class="glyphicon glyphicon-plus"></i>
