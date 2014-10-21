@@ -31,7 +31,6 @@
     "fittext": "*",
     "jquery.scrollTo": "~1.4.13",
     "jquery.transit": "~0.9.12",
-    "bootstrapValidator": "~0.5.2",
-    "imagesloaded": "~3.1.8"
+    "bootstrapValidator": "~0.5.2"
   }
 }

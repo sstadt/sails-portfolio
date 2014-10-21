@@ -43,9 +43,9 @@ require(['jquery'], function ($) {
       if (hpadding > 0 && imgheight > 0) {
         img.css('margin-top', hpadding);
       }
-      /*else if (imgheight === 0) {
-        console.log('image align error(' + img.attr('src').substr(img.attr('src').lastIndexOf('/')+1) + '): the image height has returned as 0');
-      }*/
+      // else if (imgheight === 0) {
+      //   console.log('image align error(' + img.attr('src').substr(img.attr('src').lastIndexOf('/')+1) + '): the image height has returned as 0');
+      // }
     },
     easedur = 400,
     gallery_thumbs = 15,
@@ -97,14 +97,6 @@ require(['jquery'], function ($) {
     thumbs.each(function () {
       var that = $(this);
 
-      if (that.parent().css('display') !== 'none') {
-        // align the image once it's loaded
-        // that.imagesLoaded(function () {
-
-        //   alignImage($(this));
-        // });
-      }
-
       that.bind('click', function () {
 
         // grab the image location
@@ -114,13 +106,6 @@ require(['jquery'], function ($) {
         // place the image in the viewer
         viewer.empty();
         viewer.append('<img src="' + fullimg + '" />');
-        // viewer.find('img').imagesLoaded(function () {
-
-        //   // show the viewer
-        //   viewer.parent().fadeIn(easedur);
-        //   overlay.fadeIn(easedur);
-        //   alignImage(viewer);
-        // });
 
       });
 
@@ -153,11 +138,6 @@ require(['jquery'], function ($) {
             // initialize the next view
             var nav_text = 'page ' + newview.attr('id').substr(7) + ' of ' + Math.ceil(thumbs.length / gallery_thumbs);
             img_content.prev().find('p').text(nav_text);
-            newview.find('img').each(function () {
-              // $(this).imagesLoaded(function () {
-              //   alignImage($(this).parent());
-              // });
-            });
             newview.fadeIn(easedur);
           });
 
@@ -188,11 +168,8 @@ require(['jquery'], function ($) {
             var nav_text = 'page ' + newview.attr('id').substr(7) + ' of ' + Math.ceil(thumbs.length / gallery_thumbs);
             img_content.prev().find('p').text(nav_text);
             newview.find('img').each(function () {
-              // $(this).imagesLoaded(function () {
-              //   alignImage($(this).parent());
-              // });
+              newview.fadeIn(easedur);
             });
-            newview.fadeIn(easedur);
           });
 
           return false;
@@ -228,10 +205,6 @@ require(['jquery'], function ($) {
           viewer.fadeOut(easedur, function () {
             viewer.empty();
             viewer.append('<img src="' + nextimg + '" />');
-            // viewer.find('img').imagesLoaded(function () {
-            //   viewer.fadeIn(easedur);
-            //   alignImage(viewer);
-            // });
           });
 
           return false;
@@ -266,10 +239,6 @@ require(['jquery'], function ($) {
           viewer.fadeOut(easedur, function () {
             viewer.empty();
             viewer.append('<img src="' + nextimg + '" />');
-            // viewer.find('img').imagesLoaded(function () {
-            //   viewer.fadeIn(easedur);
-            //   alignImage(viewer);
-            // });
           });
 
           return false;

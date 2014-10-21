@@ -15,7 +15,6 @@ requirejs.config({
     'bsvalidate': 'vendor/bootstrapValidator/dist/js/bootstrapValidator',
     'knockout': 'vendor/knockout/dist/knockout',
     'dropzone': 'vendor/dropzone/downloads/dropzone',
-    'imagesloaded': 'vendor/imagesloaded/imagesloaded.pkgd',
 
     // classes
     'Skill': 'lib/classes/Skill',
