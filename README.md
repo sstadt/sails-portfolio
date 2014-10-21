@@ -8,9 +8,9 @@ To Do list:
 - [x] Rework portfolio layout to use bootstrap grid
 - [x] Refactor portfolio CSS into LESS
 - [x] Build contact form knockout module
-- [ ] Import User and Session controllers from nanny monster
-- [ ] Build login page
-- [ ] Implement policy control for pages
+- [x] Import User and Session controllers from nanny monster
+- [x] Build login page
+- [x] Implement policy control for pages
 - [ ] Build password recovery into User controller
 - [ ] Import image gallery page
 - [ ] Set up dropzone config area in admin for gallery images

@@ -49,6 +49,12 @@ module.exports.routes = {
   '/project/destroyall': {
     controller: 'Project',
     action: 'destroyall'
+  },
+
+  // session
+  '/login': {
+    controller: 'Session',
+    action: 'new'
   }
 
   /***************************************************************************

@@ -34,6 +34,27 @@ module.exports.policies = {
   * and its actions                                                          *
   *                                                                          *
   ***************************************************************************/
+
+  StaticController: {
+    portfolio: 'everyone',
+    admin: 'sessionAuth'
+  },
+
+  SkillController: {
+    show: 'everyone',
+    '*': 'socketAuth'
+  },
+
+  ProjectController: {
+    show: 'everyone',
+    '*': 'socketAuth'
+  },
+
+  LinkController: {
+    show: 'everyone',
+    '*': 'socketAuth'
+  },
+
 	// RabbitController: {
 
 		// Apply the `false` policy as the default for all of RabbitController's actions
