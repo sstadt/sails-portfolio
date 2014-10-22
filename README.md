@@ -14,8 +14,8 @@ To Do list:
 - [ ] Build password recovery into User controller
 - [x] Import image gallery page
 - [ ] Set up dropzone config area in admin for gallery images
-- [ ] Rework image gallery markup to use bootstrap
-- [ ] Refactor image gallery CSS into LESS
+- [x] Rework image gallery markup to use bootstrap
+- [x] Refactor image gallery CSS into LESS
 - [ ] Refactor gallery javascript to use image gallery plugin
 
 To set up the project:

@@ -2,87 +2,20 @@
 
 Web Graphics Gallery
 Scott Stadt
-Last Revised: 2/17/2013
-	
----- Color Palette ----
-off-white 		#f3f3fd
-highlight		#d5d5d5
-
-text			#082944
-em				#0c3b63
-strong			#166ab2
-
-a				#308bd1
-a:hover			#256ca2
-a:active		#1d537d
-
-viewer a		#6f6f6f
-viewer a:hover	#2d83c5
-
-blue h-light	#cce9ff
-red h-light		#ffe2e2
-green h-light	#e2ffeb
+Last Revised: 10/21/2014
 
 */
 
 .gallery {
-	height: 100%;
-	top: 0;
-	left: 0;
-	margin: 0;
-	padding: 0;
-	background-color: #000;
+	background-color: @black;
 	background-image: url(images/gallery/stars.jpg);
 
 	/*-------- Document --------*/
 
 	body {
 		background-color: transparent;
-		height: 100%;
-		margin: 0;
-		padding: 0;
 		font-family: Futura, Calibri, Tahoma, sans-serif;
-		color: #000;
-	}
-
-	#wrapper {
-		min-height: 100%;
-		width: 100%;
-		overflow: hidden;
-		position: relative;
-	}
-
-	#header, #content {
-		margin: 0 auto;
-		clear: both;
-	}
-
-	#header {
-		width: 750px;
-		padding: 0;
-		margin-top: 30px;
-	}
-
-	#logo {
-		float: left;
-		height: 120px;
-	}
-
-	#content {
-		width: 750px;
-		overflow: hidden;
-		padding: 0 50px 50px 50px;
-		margin-bottom: 250px;
-		background-color: #fafaff;
-		padding-top: 50px;
-	}
-
-	#moontrack {
-		margin: 0;
-		padding: 0;
-		height: 301px;
-		width: 301px;
-
+		color: @black;
 	}
 
 	#moon {
@@ -90,70 +23,56 @@ green h-light	#e2ffeb
 		height: 301px;
 		width: 301px;
 		top: 50px;
-		left: 50%;
-		margin-left: -750px;
+		left: 0;
+		margin-left: -130px;
 		background-image: url(images/gallery/moon.png);
+
+		@media(@xs) {
+			display: none;
+		}
 	}
 
 	#footer {
+		clear: both;
 		height: 250px;
-		width: 100%;
-		position: absolute;
 		bottom: 0;
 		left: 0;
+		margin-top: 20px;
 		background-image: url(images/gallery/bg_footer.png);
-		background-repeat:no-repeat;
-		background-position:center;
-	}
+		background-repeat: no-repeat;
+		background-position: center;
 
-	#footer p {
-		color: #ced5ca;
-		font-size: 0.9em;
-		padding-top: 200px;
-		width: 100%;
-		text-align: center;
-	}
-
-	.rc {
-		border-radius: 15px;
-		-moz-border-radius: 15px;
-		-webkit-border-radius: 15px;
+		p {
+			color: @light-green-gray;
+			font-size: 0.9em;
+			padding-top: 200px;
+			width: 100%;
+			text-align: center;
+		}
 	}
 
 	/*-------- Links --------*/
 
-	#content a {
+	a {
 		text-decoration: none;
-		color: #308bd1;
-	}
+		color: @sky-blue;
 
-	#content a:hover {
-		color: #256ca2;
-	}
+		&:hover {
+			color: @dark-sky-blue;
+		}
 
-	#content a:active {
-		color: #1d537d;
-	}
-
-	/*-------- Typography --------*/
-
-	h1, h2 {
-		padding: 25px;
-		margin: 0;
-		font-size: 22px;
-		font-weight: normal;
-	}
-
-	h1 {
-		font-size: 30px;
+		&:active {
+			color: @darker-sky-blue;
+		}
 	}
 
 	/*-------- Image Replacement --------*/
 
-	#header h1 {
+	#logo {
 		text-indent: -9999px;
 		height: 92px;
 		width: 318px;
+		margin: 20px 0;
 		background-image: url(images/gallery/bg_header.png);
 		background-repeat: no-repeat;
 	}
@@ -162,118 +81,45 @@ green h-light	#e2ffeb
 
 	#img_gallery {
 		overflow: hidden;
-		clear: both;
+		background-color: @off-white;
+		padding: 50px;
+		border-radius: 15px;
+		-moz-border-radius: 15px;
+		-webkit-border-radius: 15px;
+
+		@media(@xs) {
+			padding: 20px;
+		}
 	}
 
-	#img_gallery h1 {
-		float: left;
-		width: 350px;
+	#gallery_thumbs {
+		.gallery_thumb {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: @darker-gray;
+			height: 110px;
+			width: 110px;
+			float: left;
+			margin: 10px;
+			padding: 10px;
+			border-radius: 6px; 
+			-moz-border-radius: 6px; 
+			-webkit-border-radius: 6px;
+
+			&:hover {
+				background-color: @sky-blue;
+				cursor: pointer;
+			}
+
+			img {
+				max-width: 100%;
+				max-height: 100%;
+			}
+		}
 	}
 
-	#gallery_nav {
-		float: right;
-		width: 300px;
-		margin: 0 20px;
-	}
-
-	#gallery_nav p {
-		margin: 6px 10px;
-		font-size: 24px;
-	}
-
-	#gallery_nav p, #gallery_prev, #gallery_next {
-		float: right;
-	}
-
-	#gallery_prev, #gallery_next {
-		height: 39px;
-		width: 39px;
-		display: block;
-		text-indent: -9999px;
-		background-image: url(images/gallery/sprite_gallery.png);
-	}
-
-	#gallery_prev:hover, #viewer_prev:hover {
-		background-position: 0 78px;
-	}
-
-	#gallery_prev:active, #viewer_prev:active {
-		background-position: 0 39px;
-	}
-
-	#gallery_next, #viewer_next {
-		background-position: 39px 0;
-	}
-
-	#gallery_next:hover, #viewer_next:hover {
-		background-position: 39px 78px;
-	}
-
-	#gallery_next:active, #viewer_next:active {
-		background-position: 39px 39px;
-	}
-
-	#tabs {
-		clear: both;
-		height: 450px;
-	}
-
-	.thumbnail {
-		background-color: #282828;
-		height: 110px;
-		width: 110px;
-		float: left;
-		margin: 10px;
-		padding: 10px;
-		border-radius: 6px; 
-		-moz-border-radius: 6px; 
-		-webkit-border-radius: 6px;
-	}
-
-	.thumbnail:hover {
-		background-color: #308bd1;
-		cursor: pointer;
-	}
-
-	.thumbnail img, #image_viewer img {
-		max-width: 100%;
-		max-height: 100%;
-		display: block;
-		margin: 0 auto;
-	}
-
-	/*-------- Modal Windows --------*/
-
-	#viewer_modal, #flash_modal {
-		padding: 40px 60px;
-	    display: none;
-	    position: fixed;
-	    zindex: 10001;
-	    left: 50%;
-		background-color: #282828;
-		overflow: hidden;
-		border-radius: 10px; 
-		-moz-border-radius: 10px; 
-		-webkit-border-radius: 10px; 
-		box-shadow: 0px 0px 20px #000;
-		-moz-box-shadow: 0px 0px 20px #000;
-		-webkit-box-shadow: 0px 0px 20px #000;
-	}
-
-	#viewer_modal {
-	    top: 20%;
-		width: 680px;
-		height: 60%;
-	    margin-left: -400px;
-	}
-
-	#flash_modal {
-	    top: 50%;
-		width: 550px;
-		height: 275px;
-	    margin-left: -335px;
-	    margin-top: -177px;
-	}
+	/*-------- Modal --------*/
 
 	#modal_overlay {
 		position: fixed;
@@ -281,11 +127,60 @@ green h-light	#e2ffeb
 		top: 0;
 	    display: none;
 	    zindex: 10000;
-	    color: #fff;
+	    color: @white;
 		display: none;
 		height: 100%;
 		width: 100%;
 		background: rgba(0%, 0%, 0%, 0.7);
+	}
+
+	#viewer_modal {
+		padding: 40px 60px;
+	    display: none;
+	    position: fixed;
+	    zindex: 10001;
+	    top: 20%;
+	    left: 50%;
+		width: 680px;
+		height: 60%;
+	    margin-left: -400px;
+		background-color: @darker-gray;
+		overflow: hidden;
+		border-radius: 10px; 
+		-moz-border-radius: 10px; 
+		-webkit-border-radius: 10px; 
+		box-shadow: 0px 0px 20px @black;
+		-moz-box-shadow: 0px 0px 20px @black;
+		-webkit-box-shadow: 0px 0px 20px @black;
+	}
+
+	#viewer_next {
+		top: 50%;
+		left: 751px;
+		margin-top: -19px;
+		background-position: 39px 0;
+
+		&:hover {
+			background-position: 39px 78px;
+		}
+
+		&:active {
+			background-position: 39px 39px;
+		}
+	}
+
+	#viewer_prev {
+		top: 50%;
+		left: 10px;
+		margin-top: -19px;
+
+		&:hover {
+			background-position: 0 78px;
+		}
+
+		&:active {
+			background-position: 0 39px;
+		}
 	}
 
 	#viewer_next, #viewer_prev, #viewer_close, #flash_close {
@@ -300,35 +195,16 @@ green h-light	#e2ffeb
 		background-image: url(images/gallery/sprite_viewer.png);
 	}
 
-	#viewer_next {
-		top: 50%;
-		left: 751px;
-		margin-top: -19px;
-	}
-
-	#viewer_prev {
-		top: 50%;
-		left: 10px;
-		margin-top: -19px;
-	}
-
-	#viewer_close, #flash_close {
-		color: #6f6f6f;
+	#viewer_close {
+		color: @storm-gray;
 		text-transform: uppercase;
 		text-decoration: none;
 		top: 10px;
-	}
-
-	#viewer_close {
 		left: 735px;
-	}
 
-	#flash_close {
-		left: 605px;
-	}
-
-	#viewer_close:hover, #flash_close:hover {
-		color: #2d83c5;
+		&:hover {
+			color: @sky-blue;
+		}
 	}
 
 	#image_viewer {
