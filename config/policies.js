@@ -56,6 +56,11 @@ module.exports.policies = {
     '*': 'socketAuth'
   },
 
+  GalleryController: {
+    show: 'everyone',
+    '*': 'socketAuth'
+  },
+
   UserController: {
     '*': 'sessionAuth'
   },

@@ -21,3 +21,26 @@ input[type="text"]:not(.form-control) {
 		background-color: @lighter-gray;
 	}
 }
+
+.gallery-thumb {
+	position: relative;
+	max-height: 300px;
+
+	.btn-danger {
+		opacity: 0.4;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		-webkit-transition: @transition-all-fast;
+		-moz-transition: @transition-all-fast;
+		-ms-transition: @transition-all-fast;
+		-o-transition: @transition-all-fast;
+		transition: @transition-all-fast;
+	}
+
+	&:hover {
+		.btn-danger {
+			opacity: 1;
+		}
+	}
+}

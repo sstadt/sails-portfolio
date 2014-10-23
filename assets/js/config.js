@@ -19,7 +19,8 @@ requirejs.config({
     // classes
     'Skill': 'lib/classes/Skill',
     'Project': 'lib/classes/Project',
-    'Link': 'lib/classes/Link'
+    'Link': 'lib/classes/Link',
+    'Image': 'lib/classes/Image'
   },
   shim: {
     'bootstrap': {

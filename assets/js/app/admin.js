@@ -9,6 +9,8 @@ require(['knockout'], function (ko) {
 
   ko.components.register('link-list', { require: 'components/link-list/component' });
 
+  ko.components.register('gallery-list', { require: 'components/gallery-list/component' });
+
   // apply character list view model to the dom
   ko.applyBindings();
 });

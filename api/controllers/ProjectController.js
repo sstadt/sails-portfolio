@@ -97,18 +97,6 @@ module.exports = {
         });
       }
     });
-  },
-
-  destroyall: function (req, res) {
-    Project.destroy(function (err) {
-      if (err) {
-        res.json(err);
-      } else {
-        res.json({
-          success: true
-        });
-      }
-    });
   }
 
 };

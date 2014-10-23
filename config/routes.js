@@ -51,9 +51,11 @@ module.exports.routes = {
     controller: 'Project',
     action: 'upload'
   },
-  '/project/destroyall': {
-    controller: 'Project',
-    action: 'destroyall'
+
+  // gallery
+  '/gallery/upload': {
+    controller: 'Gallery',
+    action: 'upload'
   },
 
   // session

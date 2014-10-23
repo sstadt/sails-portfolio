@@ -53,8 +53,16 @@ module.exports = {
   },
 
   gallery: function (req, res) {
-    res.view({
-      title: 'Gallery'
+    Gallery.find(function (err, images) {
+      if (err) {
+        console.log(err);
+        res.serverError('Error retrieving images');
+      } else {
+        res.view({
+          title: 'Gallery',
+          images: images
+        });
+      }
     });
   },
 

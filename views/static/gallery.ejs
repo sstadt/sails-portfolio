@@ -12,66 +12,11 @@
 			<div id="img_gallery">
 
 				<div id="gallery_thumbs">
-					<div class="gallery_thumb">
-						<img alt="Jedi Family" src="images/gallery/thumbs/composite_JediFamily.jpg">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Lego Wedding" src="images/gallery/thumbs/composite_LegoWedding.jpg">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Triel Bookmark" src="images/gallery/thumbs/illustration_TrielBookmark.jpg">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Rebellion Poster" src="images/gallery/thumbs/illustration_RebellionPoster.jpg">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Gamer On Board" src="images/gallery/thumbs/illustration_GamerOnBoard.png">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Vida" src="images/gallery/thumbs/illustration_Vida.png">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Soldier Painting" src="images/gallery/thumbs/illustration_SoldierPainting.jpg">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Ruins Poster" src="images/gallery/thumbs/illustration_RuinsPortrait.jpg">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Toy Robot" src="images/gallery/thumbs/illustration_ToyRobot.jpg">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Dark Planet" src="images/gallery/thumbs/space_DarkPlanet.jpg">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Living Planet" src="images/gallery/thumbs/space_LivingPlanet.jpg">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Goron Map" src="images/gallery/thumbs/dnd_GoronMap.png">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="WKII Logo" src="images/gallery/thumbs/logo_WKII.png">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Snapdragon Studios Logo" src="images/gallery/thumbs/logo_SnapdragonStudios.jpg">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Ascension Banner" src="images/gallery/thumbs/wow_AscensionBanner.png">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Fawynd Signature" src="images/gallery/thumbs/wow_FawyndArcaneSig.jpg">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Tuviabielski Signature" src="images/gallery/thumbs/wow_TuviSig.jpg">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Oobie Signature" src="images/gallery/thumbs/wow_DarthOobieTransmissionSig.jpg">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Aphroditexx Signature" src="images/gallery/thumbs/wow_AphroditexxSig.jpg">
-					</div>
-					<div class="gallery_thumb">
-						<img alt="Sonatina Signature" src="images/gallery/thumbs/wow_SonaHeavenlySig.jpg">
-					</div>
+					<% _.each(images, function (image) { %>
+						<div class="gallery_thumb">
+							<img src="<%= image.link %>">
+						</div>
+					<% }) %>
 				</div>
 
 			</div>
