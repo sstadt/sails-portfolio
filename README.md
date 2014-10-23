@@ -13,10 +13,10 @@ To Do list:
 - [x] Implement policy control for pages
 - [ ] Build password recovery into User controller
 - [x] Import image gallery page
-- [ ] Set up dropzone config area in admin for gallery images
+- [x] Set up dropzone config area in admin for gallery images
 - [x] Rework image gallery markup to use bootstrap
 - [x] Refactor image gallery CSS into LESS
-- [ ] Refactor gallery javascript to use image gallery plugin
+- [ ] Rebuild image gallery implementation to use knockout and bootstrap modal
 
 To set up the project:
 

@@ -22,9 +22,19 @@ input[type="text"]:not(.form-control) {
 	}
 }
 
+.gallery-thumb, #addImage {
+	height: 250px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .gallery-thumb {
 	position: relative;
-	max-height: 300px;
+
+	img {
+		max-height: 100%;
+	}
 
 	.btn-danger {
 		opacity: 0.4;

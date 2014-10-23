@@ -9,10 +9,13 @@ Last Revised: 10/21/2014
 .gallery {
 	background-color: @black;
 	background-image: url(images/gallery/stars.jpg);
+	height: 100%;
 
 	/*-------- Document --------*/
 
 	body {
+		position: relative;
+		height: 100%;
 		background-color: transparent;
 		font-family: Futura, Calibri, Tahoma, sans-serif;
 		color: @black;
@@ -32,22 +35,33 @@ Last Revised: 10/21/2014
 		}
 	}
 
+	#gallery-container {
+		margin-bottom: -270px;
+		min-height: 100%;
+	}
+
+	#gallery-container:after {
+		content: ' ';
+		display: block;
+	}
+
+	#footer, #gallery-container:after {
+		height: 270px;
+	}
+
 	#footer {
-		clear: both;
-		height: 250px;
-		bottom: 0;
-		left: 0;
-		margin-top: 20px;
+		width: 100%;
+		position: relative;
 		background-image: url(images/gallery/bg_footer.png);
 		background-repeat: no-repeat;
-		background-position: center;
+		background-position: center bottom;
 
 		p {
+			position: absolute;
 			color: @light-green-gray;
 			font-size: 0.9em;
-			padding-top: 200px;
+			bottom: 15px;
 			width: 100%;
-			text-align: center;
 		}
 	}
 
