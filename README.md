@@ -11,12 +11,13 @@ To Do list:
 - [x] Import User and Session controllers from nanny monster
 - [x] Build login page
 - [x] Implement policy control for pages
-- [ ] Build password recovery into User controller
 - [x] Import image gallery page
 - [x] Set up dropzone config area in admin for gallery images
 - [x] Rework image gallery markup to use bootstrap
 - [x] Refactor image gallery CSS into LESS
-- [ ] Rebuild image gallery implementation to use knockout and bootstrap modal
+- [x] Rebuild image gallery implementation to use knockout and bootstrap modal
+- [ ] Build password recovery into User controller
+- [ ] Set up sorting for gallery and projects in admin
 
 To set up the project:
 
