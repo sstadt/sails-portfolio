@@ -67,7 +67,9 @@ define([
     io.socket.get('/gallery/show', function (response) {
       if (response.success) {
         if (response.images.length > 0) {
-          self.images(response.images);
+          self.images(response.images.map(function (image) {
+            return new Image(image);
+          }));
         }
       } else {
         alert('error');

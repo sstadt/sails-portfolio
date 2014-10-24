@@ -12,12 +12,10 @@
 
 			<div id="img_gallery">
 
-				<div id="gallery_thumbs">
-					<% _.each(images, function (image) { %>
-						<div class="gallery_thumb">
-							<img src="<%= image.link %>">
-						</div>
-					<% }) %>
+				<div id="gallery_thumbs" data-bind="foreach: images">
+					<div class="gallery_thumb" data-bind="click: $parent.openGallery" data-toggle="modal" data-target="#galleryModal">
+						<img data-bind="attr: { src: link }" />
+					</div>
 				</div>
 
 			</div>
@@ -33,16 +31,22 @@
 	</div>
 </div>
 
-<!-- image viewer modal overlay -->
-<div id="modal_overlay"></div>
-	<div id="viewer_modal" class="modal rc">
-	<a id="viewer_next" href="#">next</a>
-	<a id="viewer_prev" href="#">previous</a>
-	<a id="viewer_close" href="#">close</a>
-	<div id="image_viewer">
-		<img alt="Placeholder" src="images/placeholder.png">
-	</div>
-</div>
+<div id="galleryModal" class="modal fade">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-body">
+				<a id="viewer_next" href="#" data-bind="click: nextImage">next</a>
+				<a id="viewer_prev" href="#" data-bind="click: prevImage">previous</a>
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<div class="row">
+					<div class="col-xs-10 col-xs-offset-1">
+						<img data-bind="attr: { src: activeImage }" />
+					</div>
+				</div>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <div id="moon"></div><!-- moon graphic -->
 
