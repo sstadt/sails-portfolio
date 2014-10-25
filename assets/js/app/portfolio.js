@@ -6,7 +6,7 @@ require(['jquery', 'knockout', 'fittext', 'bsvalidate'], function ($, ko) {
   var btnTop = $('#scroll-top a');
 
   // set up the responsive header
-  window.fitText($('h1'), 1.2);
+  window.fitText($('h1'), 1.1);
 
   // set up the navigation scrolling
   $('#nav a').click(function (e) {
