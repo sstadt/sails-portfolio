@@ -20,7 +20,8 @@ module.exports = {
       }
 
       Project.find({
-        limit: sails.config.globals.site.projectFeedLimit
+        limit: sails.config.globals.site.projectFeedLimit,
+        sort: 'createdAt DESC'
       }, function (err, projects) {
         if (err) {
           console.log(err);
