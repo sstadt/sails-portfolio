@@ -1,5 +1,5 @@
 /*jslint browser: true*/
 
-require(['config'], function () {
+require(['lib/config'], function () {
   require(['app/admin']);
 });

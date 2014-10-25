@@ -17,6 +17,8 @@ To Do list:
 - [x] Refactor image gallery CSS into LESS
 - [x] Rebuild image gallery implementation to use knockout and bootstrap modal
 - [ ] Start branching !!!!
+- [ ] Add google analytics
+- [ ] Minify require scripts in grunt build for production
 - [ ] Update home page copy
 - [ ] Build password recovery into User controller
 - [ ] Set up sorting for gallery and projects in admin
