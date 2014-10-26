@@ -1,5 +1,5 @@
 /*jslint browser: true*/
-/*globals alert*/
+/*globals alert, io*/
 
 require(['jquery', 'lodash', 'knockout', 'Image'], function ($, _, ko, Image) {
   'use strict';
@@ -58,7 +58,7 @@ require(['jquery', 'lodash', 'knockout', 'Image'], function ($, _, ko, Image) {
   // -----------------------
   //     IMAGE GALLERY
   // -----------------------
-  
+
   function GalleryViewModel() {
     var self = this;
 
@@ -99,7 +99,6 @@ require(['jquery', 'lodash', 'knockout', 'Image'], function ($, _, ko, Image) {
 
     io.socket.get('/gallery/show', function (response) {
       if (response.success) {
-        console.log(response);
         self.images(response.images.map(function (image) {
           return new Image(image);
         }));

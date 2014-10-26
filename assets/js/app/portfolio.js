@@ -1,6 +1,12 @@
 /*jslint browser: true*/
 
-require(['jquery', 'knockout', 'fittext', 'bsvalidate'], function ($, ko) {
+require([
+  'jquery',
+  'knockout',
+  'components/contact-form/component',
+  'fittext',
+  'bsvalidate'
+], function ($, ko, ContactForm) {
   'use strict';
 
   var btnTop = $('#scroll-top a');
@@ -32,7 +38,7 @@ require(['jquery', 'knockout', 'fittext', 'bsvalidate'], function ($, ko) {
     }
   });
 
-  ko.components.register('contact-form', { require: 'components/contact-form/component' });
+  ko.components.register('contact-form', ContactForm);
 
   // apply character list view model to the dom
   ko.applyBindings();
