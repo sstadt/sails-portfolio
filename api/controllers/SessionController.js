@@ -15,7 +15,7 @@ module.exports = {
   'new': function (req, res) {
     res.view({
       template: 'session/new',
-      _layoutFile: '../login'
+      title: 'login'
     });
   },
 

@@ -36,6 +36,7 @@ module.exports = {
 
           res.view({
             title: 'Portfolio',
+            script: 'portfolio',
             design: _.filter(skills, function (skill) { return skill.category === 'design'; }),
             development: _.filter(skills, function (skill) { return skill.category === 'development'; }),
             projects: projects,
@@ -49,13 +50,15 @@ module.exports = {
 
   admin: function (req, res) {
     res.view({
-      title: 'Admin'
+      title: 'Admin',
+      script: 'admin'
     });
   },
 
   gallery: function (req, res) {
     res.view({
-      title: 'Gallery'
+      title: 'Gallery',
+      script: 'gallery'
     });
   },
 
