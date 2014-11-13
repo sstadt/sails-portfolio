@@ -2,12 +2,15 @@
 
 require([
 	'knockout',
+  'components/blog-editor/component',
 	'components/skill-list/component',
 	'components/project-list/component',
 	'components/link-list/component',
 	'components/gallery-list/component'
-], function (ko, SkillList, ProjectList, LinkList, GalleryList) {
+], function (ko, BlogEditor, SkillList, ProjectList, LinkList, GalleryList) {
   'use strict';
+
+  ko.components.register('blog-editor', BlogEditor);
 
   ko.components.register('skill-list', SkillList);
 

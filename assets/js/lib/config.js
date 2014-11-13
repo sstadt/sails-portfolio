@@ -15,8 +15,10 @@ requirejs.config({
     'bsvalidate': 'vendor/bootstrapValidator/dist/js/bootstrapValidator',
     'knockout': 'vendor/knockout/dist/knockout',
     'dropzone': 'vendor/dropzone/downloads/dropzone',
+    'wysiwyg': 'vendor/bootstrap-wysiwyg/bootstrap-wysiwyg',
 
     // classes
+    'Post': 'lib/classes/Post',
     'Skill': 'lib/classes/Skill',
     'Project': 'lib/classes/Project',
     'Link': 'lib/classes/Link',
@@ -27,6 +29,9 @@ requirejs.config({
       deps: ['jquery']
     },
     'bsvalidate': {
+      deps: ['bootstrap']
+    },
+    'wysiwyg': {
       deps: ['bootstrap']
     },
     'fittext': {
