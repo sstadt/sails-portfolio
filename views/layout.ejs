@@ -20,28 +20,32 @@
 
     <% if (sails.config.environment === 'development' && typeof script === 'string') { %>
       <script src="/js/vendor/requirejs/require.js" data-main="/js/<%= script %>-app.js"></script>
+      
+      <!-- Live Reload -->
+      <script src="//localhost:9090/livereload.js"></script>
     <% } %>
 
     <% if (sails.config.environment === 'production' && typeof script === 'string') { %>
       <script src="/js/vendor/requirejs/require.js" data-main="/js-build/app/<%= script %>.js"></script>
+      
+      <!-- Analytics -->
+      <script src="http://www.google-analytics.com/ga.js" async="" type="text/javascript"></script>
+      <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-36862310-1']);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      </script>
     <% } %>
 
     <!--SCRIPTS-->
     
     <!--SCRIPTS END-->
-    
-    <!-- Analytics -->
-    <script src="http://www.google-analytics.com/ga.js" async="" type="text/javascript"></script>
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-36862310-1']);
-      _gaq.push(['_trackPageview']);
-      
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+
   </body>
 </html>

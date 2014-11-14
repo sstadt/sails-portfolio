@@ -13,9 +13,15 @@ define([
 
   function BlogEditorViewModel() {
 
-    self.newPost = ko.observable();
+    self.newPostTitle = ko.observable();
+    self.newPostTags = ko.observable();
+    self.newPostContent = ko.observable();
 
     //$('#new_post').wysiwyg();
+    
+    self.addPost = function () {
+      console.log('bazinga');
+    };
 
     // cache this to eliminate the need to pass context to jquery and lodash functions  
     // var self = this;
