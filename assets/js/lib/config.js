@@ -15,8 +15,8 @@ requirejs.config({
     'bsvalidate': 'vendor/bootstrapValidator/dist/js/bootstrapValidator',
     'knockout': 'vendor/knockout/dist/knockout',
     'dropzone': 'vendor/dropzone/downloads/dropzone',
-    'wysihtml5': 'vendor/wysihtml5/dist/wysihtml5-0.3.0',
-    'wysiwyg': 'vendor/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2',
+    'hotkeys': 'vendor/bootstrap-wysiwyg/external/jquery.hotkeys',
+    'wysiwyg': 'vendor/bootstrap-wysiwyg/bootstrap-wysiwyg',
 
     // classes
     'Post': 'lib/classes/Post',
@@ -32,8 +32,11 @@ requirejs.config({
     'bsvalidate': {
       deps: ['bootstrap']
     },
+    'hotkeys': {
+      deps: ['jquery']
+    },
     'wysiwyg': {
-      deps: ['bootstrap', 'wysihtml5']
+      deps: ['jquery', 'hotkeys', 'bootstrap']
     },
     'fittext': {
       deps: ['jquery']
@@ -63,6 +66,29 @@ requirejs.config({
       update: function (element, valueAccessor) {
         var value = ko.utils.unwrapObservable(valueAccessor());
         $(element).text(value);
+      }
+    };
+
+    ko.bindingHandlers.htmlValue = {
+      init: function(element, valueAccessor, allBindingsAccessor) {
+        var updateHandler = function() {
+          var modelValue = valueAccessor(),
+            elementValue = element.innerHTML;
+
+          //update the value on keyup
+          modelValue(elementValue);
+        };
+
+        ko.utils.registerEventHandler(element, "keyup", updateHandler);
+        ko.utils.registerEventHandler(element, "input", updateHandler);
+      },
+      update: function(element, valueAccessor) {
+        var value = ko.utils.unwrapObservable(valueAccessor()) || "",
+          current = element.innerHTML;
+
+        if (value !== current) {
+          element.innerHTML = value;    
+        }
       }
     };
 

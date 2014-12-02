@@ -15,9 +15,9 @@ define([
 
     self.newPostTitle = ko.observable();
     self.newPostTags = ko.observable();
-    self.newPostContent = ko.observable('');
+    self.newPostContent = ko.observable();
 
-    //$('#new_post_content').wysihtml5();
+    $('#new_post_content').wysiwyg();
     
     self.addPost = function () {
       console.log('bazinga');

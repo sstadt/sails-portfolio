@@ -10,7 +10,57 @@
 				<input type="text" data-bind="textInput: newPostTags" name="new_post_tags" />
 			</div>
 			<div class="form-group">
-				<textarea id="new_post_content" data-bind="wysihtml5: { data: newPostContent }"></textarea>
+				<!-- Toolbar -->
+				<div class="btn-toolbar" data-role="editor-toolbar" data-target="#new_post_content">
+					<div class="btn-group">
+						<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Font Size">
+							<i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+							<li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+							<li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+						</ul>
+					</div>
+					<div class="btn-group">
+						<a class="btn btn-primary" data-edit="bold" data-original-title="Bold (Ctrl/Cmd+B)">
+							<i class="fa fa-bold"></i>
+						</a>
+						<a class="btn btn-primary" data-edit="italic" data-original-title="Italic (Ctrl/Cmd+I)">
+							<i class="fa fa-italic"></i>
+						</a>
+					</div>
+					<div class="btn-group">
+						<a class="btn btn-primary" data-edit="insertunorderedlist" data-original-title="Bullet list">
+							<i class="fa fa-list-ul"></i>
+						</a>
+						<a class="btn btn-primary" data-edit="insertorderedlist" data-original-title="Number list">
+							<i class="fa fa-list-ol"></i>
+						</a>
+					</div>
+					<div class="btn-group">
+						<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-original-title="Hyperlink">
+							<i class="fa fa-chain"></i>
+						</a>
+						<div class="dropdown-menu input-append">
+							<input class="span2" placeholder="URL" type="text" data-edit="createLink">
+							<button class="btn" type="button">Add</button>
+						</div>
+						<a class="btn btn-primary" data-edit="unlink" data-original-title="Remove Hyperlink">
+							<i class="fa fa-chain-broken"></i>
+						</a>
+					</div>
+					<div class="btn-group">
+						<a class="btn btn-primary" data-edit="undo" data-original-title="Undo (Ctrl/Cmd+Z)">
+							<i class="fa fa-undo"></i>
+						</a>
+						<a class="btn btn-primary" data-edit="redo" data-original-title="Redo (Ctrl/Cmd+Y)">
+							<i class="fa fa-repeat"></i>
+						</a>
+					</div>
+				</div>
+				<!-- Edit Box -->
+				<div id="new_post_content" class="editor" data-bind="htmlValue: newPostContent"></div>
 			</div>
 		</form>
 		<div data-bind="text: newPostContent"></div>
