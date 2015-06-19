@@ -4,24 +4,9 @@ a [Sails](http://sailsjs.org) application
 
 To Do list:
 
-- [x] Update portfolio page to use sails templates
-- [x] Rework portfolio layout to use bootstrap grid
-- [x] Refactor portfolio CSS into LESS
-- [x] Build contact form knockout module
-- [x] Import User and Session controllers from nanny monster
-- [x] Build login page
-- [x] Implement policy control for pages
-- [x] Import image gallery page
-- [x] Set up dropzone config area in admin for gallery images
-- [x] Rework image gallery markup to use bootstrap
-- [x] Refactor image gallery CSS into LESS
-- [x] Rebuild image gallery implementation to use knockout and bootstrap modal
-- [x] Start branching !!!!
-- [x] Add google analytics
-- [x] Minify require scripts in grunt build for production
-- [x] Update home page copy
 - [ ] Build password recovery into User controller
 - [ ] Set up sorting for gallery and projects in admin
+- [ ] Build out blogging tools
 
 To set up the project:
 
