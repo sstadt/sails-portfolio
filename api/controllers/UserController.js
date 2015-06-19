@@ -19,22 +19,22 @@ module.exports = {
     User.create(userObj, function userCreated(err, user) {
       // if there's an error
       if (err) {
-      if (err.code === 11000) {
+        if (err.code === 11000) {
 
-        var duplicateEmailError = [{
-          name: 'duplicateEmailError',
-          message: 'There is already an account associated with that email address.'
-        }];
+          var duplicateEmailError = [{
+            name: 'duplicateEmailError',
+            message: 'There is already an account associated with that email address.'
+          }];
 
-        // Remember that err is the object being passed down (a.k.a. flash.err), whose value is another object with
-        // the key of usernamePasswordRequiredError
-        req.session.flash = {
-        err: duplicateEmailError
-        };
+          // Remember that err is the object being passed down (a.k.a. flash.err), whose value is another object with
+          // the key of usernamePasswordRequiredError
+          req.session.flash = {
+            err: duplicateEmailError
+          };
 
-        res.redirect('/user/new');
-        return;
-      }
+          res.redirect('/user/new');
+          return;
+        }
       }
 
       user.save(function (err, user) {
