@@ -1,7 +1,13 @@
 /*jslint browser: true*/
 /*globals alert, io*/
 
-require(['jquery', 'lodash', 'knockout', 'Image'], function ($, _, ko, Image) {
+require([
+  'jquery',
+  'lodash',
+  'knockout',
+  'Image',
+  'lib/common'
+], function ($, _, ko, Image) {
   'use strict';
 
   // grab the stuff we're going to use

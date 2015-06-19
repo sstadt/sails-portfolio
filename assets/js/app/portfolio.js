@@ -5,7 +5,8 @@ require([
   'knockout',
   'components/contact-form/component',
   'fittext',
-  'bsvalidate'
+  'bsvalidate',
+  'lib/common'
 ], function ($, ko, ContactForm) {
   'use strict';
 

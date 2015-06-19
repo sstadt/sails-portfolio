@@ -6,7 +6,8 @@ require([
 	'components/skill-list/component',
 	'components/project-list/component',
 	'components/link-list/component',
-	'components/gallery-list/component'
+	'components/gallery-list/component',
+  'lib/common'
 ], function (ko, BlogEditor, SkillList, ProjectList, LinkList, GalleryList) {
   'use strict';
 
